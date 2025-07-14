@@ -1,9 +1,11 @@
 /* Basic Reset & Body Styling */
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: 'Arial', sans-serif;
+    /* Or any other font */
     line-height: 1.6;
     color: #333;
 }
@@ -11,83 +13,74 @@ body, html {
 /* General Parallax Section Styling */
 .parallax-section {
     position: relative;
-    height: 100vh; /* Make it take up the full viewport height */
+    height: 100vh;
+    /* Make it take up the full viewport height */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white; /* Default text color for sections with dark backgrounds */
-    overflow: hidden; /* Important for parallax effects to clip content */
+    color: white;
+    /* Text color for sections with dark backgrounds */
+    overflow: hidden;
+    /* Important for parallax effects to clip content */
 
-    /* These two properties are crucial for making the photo always fit and cover the screen */
-    background-size: cover; /* Ensures the image always covers the entire section */
-    background-position: center; /* Centers the image within the section */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-attachment: fixed; /* This creates the basic CSS parallax effect */
+    /* Default background properties, specific images set below */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* This creates the basic CSS parallax effect */
 }
 
-/* Updated: Dark Overlay for Parallax Sections with OPACITY fade */
-.parallax-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75); /* 75% transparent dark box */
-    z-index: 0;
-    pointer-events: none;
-    opacity: 1; /* Initial state: fully opaque overlay (will be animated by JS) */
-}
 
 
 /* Specific Styling for the Title Section */
 #intro-section {
-    background-image: url('https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg');
+    background-image: url('../images/happy.jpg');
+    max-width: auto;
+    /* Adjust path to your image */
+    /* If you're using JS for parallax, you might remove background-attachment: fixed; here */
+     background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent overlay for readability */
+    padding: 30px 40px;
+    /*border-radius: 10px;/* Optional: rounded corners */
+    max-width: auto;
+    max-height: 100%;
 }
 
-/* Specific Styling for the other two disappearing parallax sections */
-#disappearing-section-2 {
-    background-image: url('https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg');
+#intro-section .content {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent overlay for readability */
+    padding: 30px 40px;
+    /*border-radius: 10px;/* Optional: rounded corners */
+    max-width: auto;
+    max-height: 100%;
 }
 
-#disappearing-section-3 {
-    background-image: url('https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg');
-}
-
-
-/* Styling for content within parallax sections (no box) */
-.parallax-section .content {
-    max-width: 800px;
-    padding: 20px; /* General padding for responsiveness */
-    position: relative;
-    z-index: 1; /* Ensure content is above the overlay */
-    pointer-events: none; /* Allows clicks to pass through to elements behind if needed */
-}
-
-.parallax-section h1,
-.parallax-section h2 {
+#intro-section h1 {
     font-size: 3.5em;
+    /* Large title */
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* For contrast */
 }
 
-.parallax-section p {
+#intro-section p {
     font-size: 1.5em;
+    /* Subtitle size */
     opacity: 0.9;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* For contrast */
 }
-
 
 /* Styling for Normal Story Sections */
 .normal-section {
-    min-height: 80vh; /* Give them some height to scroll through */
+    min-height: 80vh;
+    /* Give them some height to scroll through */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f8f8f8;
+    /* Light background for normal content */
     color: #333;
-    padding: 50px 0; /* Add padding to content sections */
+    padding: 50px 0;
+    /* Add padding to content sections */
 }
 
 .normal-section .content {
@@ -98,57 +91,14 @@ body, html {
 }
 
 .background-alt {
-    background-color: #e0e0e0; /* Different background for alternating sections */
+    background-color: #e0e0e0;
+    /* Different background for alternating sections */
 }
 
-/* Optional: Additional Parallax Sections (text does NOT disappear here by default) */
+/* Optional: Additional Parallax Sections */
 #middle-parallax {
-    background-image: url('https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg');
-}
-
-
-/* Callout Box Styling */
-.callout-box {
-    width: 300px; /* Fixed width for desktop */
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-left: 5px solid #007bff;
-    padding: 20px;
-    margin: 40px auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    text-align: left;
-    color: #333;
-    position: relative;
-
-    opacity: 0;
-    transform: translateX(-100%);
-}
-
-.callout-box h3 {
-    color: #007bff;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.callout-box p {
-    font-size: 0.9em;
-    margin-bottom: 15px;
-}
-
-.callout-button {
-    display: inline-block;
-    background-color: #007bff;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
-}
-
-.callout-button:hover {
-    background-color: #0056b3;
+    background-image: url('../images/happy.jpg');
+    /* Another image */
 }
 
 /* Footer Styling */
@@ -158,36 +108,5 @@ body, html {
     text-align: center;
     padding: 20px 0;
     min-height: unset;
-}
-
-/* --- Mobile Responsiveness --- */
-@media (max-width: 768px) {
-    .parallax-section {
-        background-attachment: scroll; /* Makes background scroll normally on mobile for performance */
-        height: 60vh; /* Adjust height for less overwhelming sections on small screens */
-        /* background-size: cover; and background-position: center; are still active and effective here */
-    }
-
-    .parallax-section h1,
-    .parallax-section h2 {
-        font-size: 2em; /* Smaller font for titles */
-    }
-
-    .parallax-section p {
-        font-size: 1em; /* Smaller font for subtitles */
-    }
-
-    .normal-section {
-        min-height: auto; /* Allow content to dictate height */
-        padding: 30px 0; /* Adjust padding */
-    }
-
-    .normal-section .content {
-        padding: 15px; /* Adjust padding for inner content */
-    }
-
-    .callout-box {
-        width: 90%; /* Make callout box fluid on small screens */
-        margin: 30px auto; /* Adjust margin */
-    }
+    /* Override min-height from normal-section */
 }
