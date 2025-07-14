@@ -87,43 +87,49 @@
 </head>
 <body class="antialiased">
 
-    <div class="min-h-screen flex items-center justify-center p-8 bg-gradient-to-br from-gray-100 to-gray-300">
-       
-            <h1 class="text-5xl md:text-6xl font-extrabold text-center text-gray-900 mb-16 leading-tight">
-                Naše priče
-            </h1>
-            <p class=" text-center">Planiranje mirovine je jako vazno</p>
-            <div class="column-wrapper flex flex-col md:flex-row justify-stretch items-stretch md:items-stretch w-full">
+    <!-- Removed padding and centering from this div to allow content to reach edges -->
+    <div class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 w-full">
+        <!-- Main title and button are now directly within this full-width container -->
+        <h1 class="text-5xl md:text-6xl font-extrabold text-center text-gray-900 mt-16 mb-8 leading-tight px-4">
+            Explore Our Stories
+        </h1>
+        <div class="flex justify-center mb-16 px-4">
+            <button id="generateStoryIdeaBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                ZAPOČNI SVOJU PRIČU
+            </button>
+        </div>
 
-                <!-- Column 1 -->
-                <a href="story1.html" class="photo-card flex-1 w-full md:w-1/3 opacity-65 translate-y-10" id="card1">
-                    <img src="../images/happy.jpg" alt="Portrait of a person" class="w-full h-full object-cover">
-                    <div class="text-overlay">
-                        <h1 class="text-3xl font-bold">Neviđeno putovanje</h1>
-                        <p class="text-lg font-normal">A tale of discovery and resilience in the heart of the unknown.</p>
-                    </div>
-                </a>
+        <!-- This wrapper now spans full width and contains the photo cards -->
+        <div class="column-wrapper flex flex-col md:flex-row justify-stretch items-stretch md:items-stretch w-full">
 
-                <!-- Column 2 -->
-                <a href="story2.html" class="photo-card flex-1 w-full md:w-1/3 opacity-65 translate-y-10" id="card2">
-                    <img src="https://as1.ftcdn.net/v2/jpg/02/09/86/24/1000_F_209862474_zC5dpVeITJybZyE98hiY2uBZVr2JYEVN.jpg" alt="Portrait of another person" class="w-full h-full object-cover">
-                    <div class="text-overlay">
-                        <h1 class="text-3xl font-bold">Budući horizonti</h1>
-                        <p class="text-lg font-normal">Pioneering innovations shaping the world of tomorrow.</p>
-                    </div>
-                </a>
+            <!-- Column 1 -->
+            <a href="story1.html" class="photo-card w-full md:w-1/3" id="card1">
+                <img src="https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg" alt="Portrait of a person" class="w-full h-full object-cover">
+                <div class="text-overlay">
+                    <h1 class="text-3xl font-bold">The Unseen Journey</h1>
+                    <p class="text-lg font-normal">A tale of discovery and resilience in the heart of the unknown.</p>
+                </div>
+            </a>
 
-                <!-- Column 3 -->
-                <a href="story3.html" class="photo-card flex-1 w-full md:w-1/3 opacity-65 translate-y-10" id="card3">
-                    <img src="../images/slika3.jpeg" alt="Portrait of a third person" class="w-full h-full object-cover">
-                    <div class="text-overlay">
-                        <h1 class="text-3xl font-bold">Eho prošlosti</h1>
-                        <p class="text-lg font-normal">Unraveling ancient mysteries through forgotten artifacts.</p>
-                    </div>
-                </a>
+            <!-- Column 2 -->
+            <a href="story2.html" class="photo-card w-full md:w-1/3" id="card2">
+                <img src="https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg" alt="Portrait of another person" class="w-full h-full object-cover">
+                <div class="text-overlay">
+                    <h1 class="text-3xl font-bold">Echoes of the Past</h1>
+                    <p class="text-lg font-normal">Unraveling ancient mysteries through forgotten artifacts.</p>
+                </div>
+            </a>
 
-            </div>
-        
+            <!-- Column 3 -->
+            <a href="story3.html" class="photo-card w-full md:w-1/3" id="card3">
+                <img src="https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg" alt="Portrait of a third person" class="w-full h-full object-cover">
+                <div class="text-overlay">
+                    <h1 class="text-3xl font-bold">Future's Horizon</h1>
+                    <p class="text-lg font-normal">Pioneering innovations shaping the world of tomorrow.</p>
+                </div>
+            </a>
+
+        </div>
     </div>
 
     <!-- GSAP CDN -->
