@@ -72,6 +72,42 @@
             font-weight: 400; /* font-normal */
             opacity: 0.9;
         }
+ /* Popover/Tooltip styles */
+        .popover-container {
+            position: relative;
+            display: inline-block; /* Allows the container to wrap the button */
+        }
+        .popover-content {
+            visibility: hidden;
+            opacity: 0;
+            width: 200px; /* Adjust width as needed */
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px 0;
+            position: absolute;
+            z-index: 10;
+            top: 125%; /* Position below the button */
+            left: 50%;
+            margin-left: -100px; /* Center the popover */
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .popover-container:hover .popover-content {
+            visibility: visible;
+            opacity: 1;
+        }
+        /* Popover arrow */
+        .popover-content::after {
+            content: "";
+            position: absolute;
+            bottom: 100%; /* At the top of the popover */
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent #333 transparent; /* Arrow pointing up */
+        }
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
@@ -81,6 +117,11 @@
             .photo-card {
                 width: 100%; /* Make cards full width on small screens */
                 margin-bottom: 0; /* Remove space between cards on small screens */
+            }
+              .popover-content {
+                width: 90%; /* Adjust width for mobile */
+                margin-left: -45%; /* Re-center for mobile */
+                left: 50%;
             }
         }
     </style>
@@ -97,6 +138,9 @@
             <button id="generateStoryIdeaBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
                 ZAPOČNI SVOJU PRIČU
             </button>
+            <div class="popover-content">
+                Ovo je primjer dugmeta kojim pozivamo da urade kviz.
+            </div>
         </div>
 
         <!-- This wrapper now spans full width and contains the photo cards -->
