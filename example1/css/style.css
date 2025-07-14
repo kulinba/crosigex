@@ -43,16 +43,16 @@ body, html {
 
 /* Specific Styling for the Title Section */
 #intro-section {
-    background-image: url('/images/happy.jpg'); /* Adjust path to your image */
+    background-image: url('../images/happy.jpg'); /* Adjust path to your image */
 }
 
 /* Specific Styling for the other two disappearing parallax sections */
 #disappearing-section-2 {
-    background-image: url('/images/happy.jpg'); /* Your second background image */
+    background-image: url('../images/happy.jpg'); /* Your second background image */
 }
 
 #disappearing-section-3 {
-    background-image: url('/images/happy.jpg'); /* Your third background image */
+    background-image: url('../images/happy.jpg'); /* Your third background image */
 }
 
 
