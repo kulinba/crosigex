@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="hr">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Parallax Story</title>
+    <title>Moja prica primjer 01</title>
     <link rel="stylesheet" href="css/style.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <!-- UPDATED: GSAP and ScrollTrigger from CDN (using latest stable versions) -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <!-- Add other CDN links here if needed -->
+    
 </head>
-
 <body>
 
+    <!-- SECTION 1: Title Section with Disappearing Text -->
     <header class="title-section parallax-section" id="intro-section">
         <div class="content">
             <h1>Moja priča</h1>
@@ -20,7 +22,24 @@
         </div>
     </header>
 
-   <section class="story-section normal-section">
+    <!-- SECTION 2: Disappearing Text Section -->
+    <section class="parallax-section" id="disappearing-section-2">
+        <div class="content">
+            <h2>Unveiling the Mystery</h2>
+            <p>A deeper look into the world within.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Disappearing Text Section -->
+    <section class="parallax-section" id="disappearing-section-3">
+        <div class="content">
+            <h2>The Plot Thickens</h2>
+            <p>New perspectives emerge from the shadows.</p>
+        </div>
+    </section>
+
+    <!-- Normal Text Starts Here -->
+    <section class="story-section normal-section">
         <div class="content">
             <h2>Chapter 1: The First Glimpse (Normal Text Starts Here)</h2>
             <p>This is where the standard scrolling content begins. The text here will **not** disappear, creating a stable reading experience after the initial interactive introduction.</p>
@@ -40,38 +59,36 @@
 
     <section class="story-section normal-section background-alt">
         <div class="content">
-            <h2>Odluke: Deep Dive</h2>
-            <p>This section can introduce new elements, perhaps a different background, or trigger new animations via
-                JavaScript as it comes into view.</p>
-            <p>Consider what visual or textual information you want to reveal next. Each section can build on the last,
-                guiding the user through your story.</p>
+            <h2>Chapter 2: Deep Dive</h2>
+            <p>This section can introduce new elements, perhaps a different background, or trigger new animations via JavaScript as it comes into view.</p>
+            <p>Consider what visual or textual information you want to reveal next. Each section can build on the last, guiding the user through your story.</p>
         </div>
     </section>
 
+    <!-- Another Parallax Section (Optional, if you want more fixed backgrounds that don't have disappearing text) -->
     <section class="parallax-section" id="middle-parallax">
         <div class="content">
-            <h2>Iznenadno otkriće</h2>
-            <p>Another striking image to punctuate your narrative.</p>
+            <h2>A Mid-Journey Revelation</h2>
+            <p>Another striking image to punctuate your narrative, but this text stays visible.</p>
         </div>
     </section>
 
     <section class="story-section normal-section">
         <div class="content">
-            <h2>Budućnost: The Climax</h2>
-            <p>Bring your narrative to its peak. This could be a section with intense visuals or crucial information.
-            </p>
-            <p>Remember to keep your HTML clean and semantically structured. Use appropriate tags like `
-            <header>`, `<section>`, `<h2>`, `<p>`, etc.</p>
+            <h2>Chapter 3: The Climax</h2>
+            <p>Bring your narrative to its peak. This could be a section with intense visuals or crucial information.</p>
+            <p>Remember to keep your HTML clean and semantically structured. Use appropriate tags like `<header>`, `<section>`, `<h2>`, `<p>`, etc.</p>
         </div>
     </section>
 
+    <!-- Footer or Concluding Section -->
     <footer class="footer-section normal-section">
         <div class="content">
             <p>&copy; 2025 My Parallax Story. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Link to your custom JavaScript file (always after libraries) -->
     <script src="js/script.js"></script>
 </body>
-
 </html>
