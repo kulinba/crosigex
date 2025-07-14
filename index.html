@@ -1,236 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollytelling Example</title>
+    <title>Scrollytelling Title Page</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            /* Prevent horizontal scrolling */
-            background-color: #f0f0f0;
-            /* Light background for the entire page */
+            background-color: #f0f2f5;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-
-        /* Container for the entire scrollytelling experience */
-        .scrolly-container {
+        .photo-card {
             position: relative;
-            width: 100%;
-        }
-
-        /* The sticky image wrapper that stays in the viewport */
-        .sticky-image-wrapper {
-            position: fixed;
-            /* Stays fixed as content scrolls */
-            top: 0;
-            left: 0;
-            width: 100vw;
-            /* Full viewport width */
-            height: 100vh;
-            /* Full viewport height */
-            z-index: -1;
-            /* Place behind other content */
             overflow: hidden;
-            /* Ensure image doesn't overflow */
+            border-radius: 1rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-xl */
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            display: flex; /* Use flexbox to center content vertically if needed */
+            flex-direction: column;
+            justify-content: flex-end; /* Align content to the bottom */
+            min-height: 400px; /* Ensure a minimum height for the cards */
         }
-
-        /* The image itself, covering the wrapper */
-        .sticky-image {
+        .photo-card:hover {
+            transform: translateY(-8px); /* Subtle lift effect */
+        }
+        .photo-card img {
             width: 100%;
-            height: 100%;
+            height: 100%; /* Make image fill the card */
             object-fit: cover;
-            /* Cover the entire area without distortion */
-            filter: brightness(0.7);
-            /* Slightly darken the image for better text contrast */
-        }
-
-        /* Individual content sections that scroll over the sticky image */
-        .content-section {
-            min-height: 100vh;
-            /* Each section takes at least one full viewport height */
-            position: relative;
-            z-index: 10;
-            /* Ensure content is above the sticky image */
-            display: flex;
-            align-items: center;
-            /* Vertically center content */
-            justify-content: center;
-            /* Horizontally center content */
-            background-color: transparent;
-            /* Allows the sticky image to show through */
-            pointer-events: none;
-            /* Allow clicks to pass through to elements below if needed */
-        }
-
-        /* Overlay text container within each content section */
-        .overlay-text {
-            position: absolute;
-            /* Position relative to the viewport (due to flex centering) */
+            position: absolute; /* Position image behind text */
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            /* Darker background for text readability */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            /* Padding around the text */
-            opacity: 0;
-            /* Initially hidden */
-            transition: opacity 0.7s ease-in-out;
-            /* Smooth transition for opacity changes */
-            pointer-events: auto;
-            /* Allow interaction with text if needed */
-            border-radius: 0.5rem;
-            /* Rounded corners for the overlay */
+            z-index: 1; /* Place image below text overlay */
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo-card:hover img {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+        .text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem; /* p-6 */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            color: white;
+            z-index: 2; /* Place text overlay above image */
+            border-bottom-left-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+        .text-overlay h1 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 0.5rem;
+        }
+        .text-overlay p {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 400; /* font-normal */
+            opacity: 0.9;
         }
 
-        /* Standard content section after scrollytelling */
-        .standard-section {
-            background-color: #ffffff;
-            /* White background for standard content */
-            padding: 4rem 2rem;
-            /* Ample padding */
-            min-height: 100vh;
-            /* Ensure it takes at least a full viewport height */
-            position: relative;
-            z-index: 20;
-            /* Ensure it's above everything else */
-            box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.1);
-            /* Shadow to separate from sticky part */
-            border-top-left-radius: 1rem;
-            border-top-right-radius: 1rem;
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .column-wrapper {
+                flex-direction: column;
+            }
+            .photo-card {
+                width: 90%; /* Make cards wider on small screens */
+                margin-bottom: 2rem; /* Add space between cards */
+            }
         }
-
-        /* No specific width needed for callout-box in CSS, Tailwind will handle flex basis */
     </style>
 </head>
+<body class="antialiased">
 
-<body>
-    <div class="scrolly-container">
-        <!-- The sticky background image -->
-        <div class="sticky-image-wrapper">
-            <img src="images/happy.jpg" alt="Background Image"
-                class="sticky-image">
-        </div>
+    <div class="min-h-screen flex items-center justify-center p-8 bg-gradient-to-br from-gray-100 to-gray-300">
+        <div class="container mx-auto px-4 max-w-7xl">
+            <h1 class="text-5xl md:text-6xl font-extrabold text-center text-gray-900 mb-16 leading-tight">
+                Explore Our Stories
+            </h1>
+            <div class="column-wrapper flex flex-col md:flex-row justify-center items-center md:items-stretch gap-8">
 
-        <!-- Section 1: Title Overlay -->
-        <div class="content-section" id="section1">
-            <div class="overlay-text">
-                <h1 class="text-white text-5xl md:text-6xl font-bold rounded-lg p-4">Scrollytelling Example</h1>
-            </div>
-        </div>
+                <!-- Column 1 -->
+                <a href="story1.html" class="photo-card flex-1 w-full md:w-1/3 opacity-0 translate-y-10" id="card1">
+                    <img src="/images/happy.jpg" alt="Portrait of a person" class="w-full h-full object-cover">
+                    <div class="text-overlay">
+                        <h1 class="text-3xl font-bold">The Unseen Journey</h1>
+                        <p class="text-lg font-normal">A tale of discovery and resilience in the heart of the unknown.</p>
+                    </div>
+                </a>
 
-        <!-- Section 2: Introduction Part 1 -->
-        <div class="content-section" id="section2">
-            <div class="overlay-text">
-                <p class="text-white text-2xl md:text-3xl font-semibold mb-2">Introduction Part 1:</p>
-                <p class="text-white text-xl md:text-2xl">This is the first line of our story.</p>
-                <p class="text-white text-xl md:text-2xl">It sets the initial scene and context.</p>
-                <p class="text-white text-xl md:text-2xl">Prepare to delve deeper into the narrative.</p>
-            </div>
-        </div>
+                <!-- Column 2 -->
+                <a href="story2.html" class="photo-card flex-1 w-full md:w-1/3 opacity-0 translate-y-10" id="card2">
+                    <img src="/images/slika2.jpg" alt="Portrait of another person" class="w-full h-full object-cover">
+                    <div class="text-overlay">
+                        <h1 class="text-3xl font-bold">Echoes of the Past</h1>
+                        <p class="text-lg font-normal">Unraveling ancient mysteries through forgotten artifacts.</p>
+                    </div>
+                </a>
 
-        <!-- Section 3: Introduction Part 2 -->
-        <div class="content-section" id="section3">
-            <div class="overlay-text">
-                <p class="text-white text-2xl md:text-3xl font-semibold mb-2">Introduction Part 2:</p>
-                <p class="text-white text-xl md:text-2xl">As you scroll, new information unfolds.</p>
-                <p class="text-white text-xl md:text-2xl">Each step reveals a different facet.</p>
-                <p class="text-white text-xl md:text-2xl">Building a comprehensive understanding.</p>
-            </div>
-        </div>
+                <!-- Column 3 -->
+                <a href="story3.html" class="photo-card flex-1 w-full md:w-1/3 opacity-0 translate-y-10" id="card3">
+                    <img src="/images/slika3.jpeg" alt="Portrait of a third person" class="w-full h-full object-cover">
+                    <div class="text-overlay">
+                        <h1 class="text-3xl font-bold">Future's Horizon</h1>
+                        <p class="text-lg font-normal">Pioneering innovations shaping the world of tomorrow.</p>
+                    </div>
+                </a>
 
-        <!-- Section 4: Introduction Part 3 -->
-        <div class="content-section" id="section4">
-            <div class="overlay-text">
-                <p class="text-white text-2xl md:text-3xl font-semibold mb-2">Introduction Part 3:</p>
-                <p class="text-white text-xl md:text-2xl">The final piece of the introductory puzzle.</p>
-                <p class="text-white text-xl md:text-2xl">Leading you smoothly into the main content.</p>
-                <p class="text-white text-xl md:text-2xl">Ready for the full story?</p>
-            </div>
-        </div>
-
-        <!-- Standard Content Section -->
-        <div class="standard-section max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Standard Content Section</h2>
-            <div class="flex flex-col md:flex-row gap-8">
-                <!-- Callout Box - Updated for elasticity and prominence -->
-                <div
-                    class="bg-red-700 text-white p-6 rounded-lg shadow-2xl border-l-8 border-red-900 flex-shrink-0 mb-6 md:mb-0 md:w-1/3">
-                    <p class="font-bold text-xl mb-3">Important Callout!</p>
-                    <p class="text-lg leading-relaxed">This is a special message highlighted in a red box. It's designed
-                        to dynamically adjust its height based on the content within it, ensuring all text is visible.
-                        The enhanced shadow and border make it more visually striking and outstanding.</p>
-                </div>
-                <!-- Main Paragraph Text -->
-                <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-2/3">
-                    This is where your regular content begins. After the immersive scrollytelling experience, the page
-                    transitions to a more traditional layout. You can include paragraphs, lists, images, and other
-                    elements here to provide detailed information. The goal of scrollytelling is to engage the user with
-                    a narrative that unfolds as they scroll, often revealing new information or perspectives tied to a
-                    visual element. This section demonstrates how to seamlessly transition back to standard web page
-                    content, providing a familiar reading experience.
-                    <br><br>
-                    You can continue adding more paragraphs and information as needed. The red callout box provides a
-                    way to draw attention to specific points or warnings within your text, ensuring that important
-                    messages are not missed. Always ensure your content is well-structured, easy to read, and provides
-                    value to the user for optimal engagement and understanding. This flexible layout allows for diverse
-                    content presentation.
-                </p>
             </div>
         </div>
     </div>
 
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+
     <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Select all content sections that will trigger overlay changes
-            const contentSections = document.querySelectorAll('.content-section');
+            // GSAP animation for the main title
+            gsap.from("h1", {
+                opacity: 0,
+                y: -50,
+                duration: 1,
+                ease: "power3.out",
+                delay: 0.5
+            });
 
-            // Options for the Intersection Observer
-            const observerOptions = {
-                root: null, // The viewport is the root
-                rootMargin: '0px', // No margin around the root
-                threshold: 0.5 // Trigger when 50% of the target is visible
-            };
-
-            // Create a new Intersection Observer
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    // Find the overlay text element within the current section
-                    const overlayText = entry.target.querySelector('.overlay-text');
-                    if (overlayText) {
-                        // If the section is intersecting (i.e., visible by 50% or more)
-                        if (entry.isIntersecting) {
-                            // Make the overlay visible
-                            overlayText.classList.remove('opacity-0');
-                            overlayText.classList.add('opacity-100');
-                        } else {
-                            // If the section is not intersecting, hide the overlay
-                            overlayText.classList.remove('opacity-100');
-                            overlayText.classList.add('opacity-0');
-                        }
+            // GSAP animation for each photo card
+            gsap.utils.toArray(".photo-card").forEach((card, i) => {
+                gsap.from(card, {
+                    opacity: 0,
+                    y: 50,
+                    duration: 1,
+                    ease: "power3.out",
+                    delay: 0.8 + (i * 0.2), // Stagger the animation
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 80%", // When the top of the card enters 80% of the viewport
+                        end: "bottom 20%",
+                        toggleActions: "play none none none", // Play animation once
+                        // markers: true // Uncomment for debugging ScrollTrigger
                     }
                 });
-            }, observerOptions);
+            });
 
-            // Observe each content section
-            contentSections.forEach(section => {
-                observer.observe(section);
+            // Optional: Add a subtle parallax effect to the background on scroll
+            gsap.to("body", {
+                backgroundPosition: "50% 100%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
             });
         });
     </script>
 </body>
-
 </html>
