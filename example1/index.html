@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Parallax Story</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    </head>
+<body>
+
+    <header class="title-section parallax-section" id="intro-section">
+        <div class="content">
+            <h1>The Journey Begins</h1>
+            <p>An immersive tale through captivating visuals</p>
+        </div>
+    </header>
+
+    <section class="parallax-section" id="disappearing-section-2">
+        <div class="content">
+            <h2>Unveiling the Mystery</h2>
+            <p>A deeper look into the world within.</p>
+        </div>
+    </section>
+
+    <section class="parallax-section" id="disappearing-section-3">
+        <div class="content">
+            <h2>The Plot Thickens</h2>
+            <p>New perspectives emerge from the shadows.</p>
+        </div>
+    </section>
+
+    <section class="story-section normal-section">
+        <div class="content">
+            <h2>Chapter 1: The First Glimpse (Normal Text Starts Here)</h2>
+            <p>This is where the standard scrolling content begins. The text here will **not** disappear, creating a stable reading experience after the initial interactive introduction.</p>
+            <p>You can add more paragraphs, images, or data visualizations here. The idea is to have engaging content that progresses the narrative as the user scrolls down.</p>
+            <p>Think about how the New York Times uses text to complement its visual effects – clarity and conciseness are key.</p>
+        </div>
+    </section>
+
+    <section class="story-section normal-section background-alt">
+        <div class="content">
+            <h2>Chapter 2: Deep Dive</h2>
+            <p>This section can introduce new elements, perhaps a different background, or trigger new animations via JavaScript as it comes into view.</p>
+            <p>Consider what visual or textual information you want to reveal next. Each section can build on the last, guiding the user through your story.</p>
+
+            <div class="callout-box" id="myCallout">
+                <h3>Special Insight!</h3>
+                <p>This is an important note or a call to action that slides in smoothly from the left as you scroll.</p>
+                <a href="#" class="callout-button">Learn More</a>
+            </div>
+
+            <p>Here's some more content after the callout box, demonstrating how it integrates into the flow of your story.</p>
+        </div>
+    </section>
+
+    <section class="parallax-section" id="middle-parallax">
+        <div class="content">
+            <h2>A Mid-Journey Revelation</h2>
+            <p>Another striking image to punctuate your narrative, but this text stays visible.</p>
+        </div>
+    </section>
+
+    <section class="story-section normal-section">
+        <div class="content">
+            <h2>Chapter 3: The Climax</h2>
+            <p>Bring your narrative to its peak. This could be a section with intense visuals or crucial information.</p>
+            <p>Remember to keep your HTML clean and semantically structured. Use appropriate tags like `<header>`, `<section>`, `<h2>`, `<p>`, etc.</p>
+        </div>
+    </section>
+
+    <footer class="footer-section normal-section">
+        <div class="content">
+            <p>&copy; 2025 My Parallax Story. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
