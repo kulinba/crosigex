@@ -50,19 +50,16 @@ html {
 
 /* Specific Styling for the Title Section */
 #intro-section {
-    /* REPLACED IMAGE URL */
-    background-image: url('https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg');
+    background-image: url('/images/happy.jpg'); /* Adjust path to your image */
 }
 
 /* Specific Styling for the other two disappearing parallax sections */
 #disappearing-section-2 {
-    /* REPLACED IMAGE URL */
-    background-image: url('https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg');
+    background-image: url('/images/happy.jpg'); /* Your second background image */
 }
 
 #disappearing-section-3 {
-    /* REPLACED IMAGE URL */
-    background-image: url('https://img.freepik.com/premium-photo/portrait-nursing-home-happy-senior-woman-living-room-laughing-house-relax-retirement-elderly-lady-happiness-healthy-person-laughing-funny-joke-freedom-retired-life_590464-194634.jpg');
+    background-image: url('/images/happy.jpg'); /* Your third background image */
 }
 
 
