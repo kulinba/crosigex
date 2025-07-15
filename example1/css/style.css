@@ -35,7 +35,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(248, 243, 243, 0.1);
     z-index: 0;
     pointer-events: none;
     opacity: var(--overlay-opacity);
@@ -49,21 +49,22 @@ body, html {
 
 /* Specific Styling for the other two disappearing parallax sections */
 #disappearing-section-2 {
-    background-image: url('../images/happy.jpg');
+    background-image: url('../images/moving.gif');
 }
 
 #disappearing-section-3 {
-    background-image: url('../images/happy.jpg');
+    background-image: url('../images/slika3.jpeg');
 }
 
 
 /* Styling for content within parallax sections (no box) */
 .parallax-section .content {
     max-width: 800px;
-    padding: 20px;
+    padding: 5px;
     position: relative;
     z-index: 1;
     pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .parallax-section h1,
@@ -104,7 +105,7 @@ body, html {
 
 /* Optional: Additional Parallax Sections (text does NOT disappear here by default) */
 #middle-parallax {
-    background-image: url('../images/happy.jpg');
+    background-image: url('https://as1.ftcdn.net/v2/jpg/02/09/86/24/1000_F_209862474_zC5dpVeITJybZyE98hiY2uBZVr2JYEVN.jpg');
 }
 
 
