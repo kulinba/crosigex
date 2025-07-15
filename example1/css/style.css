@@ -130,6 +130,26 @@ body, html {
     float: left;
 }
 
+.callout-box1 {
+    width: 300px;
+    /*background-color: #fff;
+    border: 1px solid #ddd;
+    border-left: 5px solid #007bff;*/
+    padding: 20px;
+    margin: 0 20px 20px 0;
+    /*box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;*/
+    text-align: left;
+    color: #e40707;
+    position: relative;
+
+    /* FIXED: These are now the FINAL, VISIBLE state */
+    opacity: 1; /* It should be visible when the animation ends */
+    transform: translateX(0); /* It should be on-screen when the animation ends */
+
+    float: left;
+}
+
 .callout-box h3 {
     color: #007bff;
     margin-top: 0;
