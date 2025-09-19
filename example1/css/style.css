@@ -44,7 +44,7 @@ body, html {
 
 /* Specific Styling for the Title Section */
 #intro-section {
-    background-image: url('../images/happy.jpg');
+    background-image: url('/images/zvjezdana_static.jpg');
 }
 
 /* Specific Styling for the other two disappearing parallax sections */
@@ -53,9 +53,16 @@ body, html {
 }
 
 #disappearing-section-3 {
+    background-image: url('/images/zvjezdana_static.jpg');
+}
+
+#disappearing-section-4 {
     background-image: url('../images/slika3.jpeg');
 }
 
+#disappearing-section-5 {
+    background-image: url('/images/zvjezdana_static.jpg');
+}
 
 /* Styling for content within parallax sections (no box) */
 .parallax-section .content {
