@@ -46,7 +46,7 @@ body, html {
 
 /* Specific Styling for the Title Section */
 #intro-section {
-    background-image: url('../images/zvjezdana.gif');
+    background-image: url('../images/zvjezdana_short.gif');
     justify-content: left;
     align-items: end;
     text-align: left ;
