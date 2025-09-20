@@ -1,9 +1,11 @@
+@import (href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 /* Basic Reset & Body Styling */
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Arial', sans-serif;
+    font-family:  'Inter', sans-serif;
+    font-size: large;
     line-height: 1.6;
     color: #333;
 }
@@ -44,12 +46,17 @@ body, html {
 
 /* Specific Styling for the Title Section */
 #intro-section {
-    background-image: url('/images/zvjezdana_static.jpg');
+    background-image: url('/images/zvjezdana.gif');
+    justify-content: left;
+    align-items: end;
+    text-align: left ;
+    padding-bottom: 80px;
+    padding-left: 20px;
 }
 
 /* Specific Styling for the other two disappearing parallax sections */
 #disappearing-section-2 {
-    background-image: url('../images/moving.gif');
+    background-image: url('/images/zvjezdana_static.jpg');
 }
 
 #disappearing-section-3 {
@@ -71,14 +78,14 @@ body, html {
     position: relative;
     z-index: 1;
     pointer-events: none;
-    background-color: rgba(255, 255, 255, 0.2);
+    /*background-color: rgba(255, 255, 255, 0.1);*/
 }
 
 .parallax-section h1,
 .parallax-section h2 {
     font-size: 3.5em;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .parallax-section p {
@@ -94,7 +101,10 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f8f8f8;
+    /* Use a linear-gradient for the color overlay on top of the image */
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 254, 254, 0.634)), url('/images/zvjezdana_static.jpg');
+  background-size: cover;
+  background-position: center;
     color: #333;
     padding: 50px 0;
 }
@@ -107,13 +117,47 @@ body, html {
 }
 
 .background-alt {
-    background-color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.1);;
 }
 
 /* Optional: Additional Parallax Sections (text does NOT disappear here by default) */
 #middle-parallax {
-    background-image: url('https://as1.ftcdn.net/v2/jpg/02/09/86/24/1000_F_209862474_zC5dpVeITJybZyE98hiY2uBZVr2JYEVN.jpg');
+  display: flex;
+  align-items: stretch; /* Change to 'stretch' to make columns equal height */
+  gap: 2rem; /* Creates space between the columns */
+  padding: 0; /* Adjust padding as needed */
+  min-height: 80vh; /* Optional: keeps a similar height to other sections */
 }
+
+.text-column {
+  flex: 2;
+  padding: 2rem 4rem; /* Add padding here for text content */
+  /* The following lines vertically center the text in its column */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image-column {
+  flex: 1; /* Takes up 1/3 of the available space */
+}
+
+.image-column img {
+  width: 100%;
+  height: 100%; /* Make image fill the full height of the column */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  display: block;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Optional: For smaller screens, stack the columns */
+@media (max-width: 768px) {
+  #middle-parallax {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 
 
 /* Callout Box Styling - FIXED FOR ANIMATION */
