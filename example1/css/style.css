@@ -105,7 +105,7 @@ body, html {
     justify-content: center;
     align-items: center;
     /* Use a linear-gradient for the color overlay on top of the image */
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 254, 254, 1)), url('/images/opcije_zvjezdana.webp');
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 254, 254, 1)), url('../images/opcije_zvjezdana.webp');
   background-size: cover;
   background-position: center;
     color: #333;
@@ -150,7 +150,7 @@ body, html {
   height: 100%; /* Make image fill the full height of the column */
   object-fit: cover; /* Ensures the image covers the area without distortion */
   display: block;
-  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 254, 254, 0.634)), url('/images/zvjezdana_static.jpg');
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 254, 254, 0.634)), url('../images/zvjezdana_static.jpg');
 }
 
 /* Optional: For smaller screens, stack the columns */
