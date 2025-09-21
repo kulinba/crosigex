@@ -37,7 +37,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(248, 243, 243, 0.1);
+    background-color: rgba(15, 1, 1, 0.1);
     z-index: 0;
     pointer-events: none;
     opacity: var(--overlay-opacity);
@@ -46,7 +46,7 @@ body, html {
 
 /* Specific Styling for the Title Section */
 #intro-section {
-    background-image: url('../images/zvjezdana_short.gif');
+    background-image: url('../images/zvjezdana_duugo.gif');
     justify-content: left;
     align-items: end;
     text-align: left ;
@@ -56,15 +56,15 @@ body, html {
 
 /* Specific Styling for the other two disappearing parallax sections */
 #disappearing-section-2 {
-    background-image: url('../images/zvjezdana_static.jpg');
+    background-image: url('../images/zvjezdana1.jpg');
 }
 
 #disappearing-section-3 {
-    background-image: url('../images/zvjezdana_static.jpg');
+    background-image: url('../images/zvjezdana1.jpg');
 }
 
 #disappearing-section-4 {
-    background-image: url('../images/slika3.jpeg');
+    background-image: url('../images/opcije_zvjezdana.webp');
 }
 
 #disappearing-section-5 {
@@ -74,11 +74,13 @@ body, html {
 /* Styling for content within parallax sections (no box) */
 .parallax-section .content {
     max-width: 800px;
-    padding: 5px;
+    padding: 10px;
+    padding-left: 20px;
+    padding-top: 2px;
     position: relative;
     z-index: 1;
     pointer-events: none;
-    /*background-color: rgba(255, 255, 255, 0.1);*/
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .parallax-section h1,
@@ -102,7 +104,7 @@ body, html {
     justify-content: center;
     align-items: center;
     /* Use a linear-gradient for the color overlay on top of the image */
-  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 254, 254, 0.634)), url('/images/zvjezdana_static.jpg');
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 254, 254, 1)), url('/images/opcije_zvjezdana.webp');
   background-size: cover;
   background-position: center;
     color: #333;
@@ -147,16 +149,24 @@ body, html {
   height: 100%; /* Make image fill the full height of the column */
   object-fit: cover; /* Ensures the image covers the area without distortion */
   display: block;
-  background-color: rgba(0, 0, 0, 0.3);
+  background: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 254, 254, 0.634)), url('/images/zvjezdana_static.jpg');
 }
 
 /* Optional: For smaller screens, stack the columns */
 @media (max-width: 768px) {
+
+.parallax-section{
+    max-width: auto;
+    padding: 10px;
+    position: relative;
+    z-index: 1;
+    pointer-events: none;
+    background-color: rgba(14, 0, 0, 0.3);
+}
   #middle-parallax {
     flex-direction: column;
     text-align: center;
   }
-}
 
 
 
@@ -235,12 +245,19 @@ body, html {
     padding: 20px 0;
     min-height: unset;
 }
+}
 
 /* --- Mobile Responsiveness --- */
 @media (max-width: 768px) {
     .parallax-section {
         background-attachment: scroll;
         height: 60vh;
+    }
+
+     .parallax-section .content {
+        max-width:300px;
+        
+    
     }
 
     .parallax-section h1,

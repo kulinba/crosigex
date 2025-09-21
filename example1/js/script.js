@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', () => { gsap.registerPlugin(Scroll
     setupDisappearingText("intro-section");
     setupDisappearingText("disappearing-section-2");
     setupDisappearingText("disappearing-section-3");
+    setupDisappearingText("disappearing-section-4");
+    setupDisappearingText("disappearing-section-5");
+     setupDisappearingText("disappearing-section-6");
 
 
     // --- Unified Photo Shading Reveal ---

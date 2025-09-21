@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +20,15 @@
             color: #333;
             overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-        .photo-card {
+
+        /* Set initial state for the main title for animation */
+        .main-title {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+
+        /* Set initial state for photo cards for animation */
+            .photo-card {
             position: relative;
             overflow: hidden;
             border-radius: 0; /* Removed rounded corners */
@@ -33,10 +41,14 @@
             min-height: 400px; /* Ensure a minimum height for the cards */
             background-color: #e0e0e0; /* Fallback background for the card area */
             flex-grow: 1; /* Allow cards to grow and fill available space */
-        }
+
+            /* Initial state before animation */
+            opacity: 0;
+            transform: translateY(50px);
+            }
         .photo-card:hover {
             transform: translateY(-8px); /* Subtle lift effect */
-        }
+            }
         .photo-card img {
             width: 100%;
             height: 100%; /* Make image fill the card */
@@ -59,8 +71,6 @@
             background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
             color: white;
             z-index: 2; /* Place text overlay above image */
-            /*border-bottom-left-radius: 1rem;
-            border-bottom-right-radius: 1rem;*/
         }
         .text-overlay h1 {
             font-size: 1.875rem; /* text-3xl */
@@ -72,7 +82,7 @@
             font-weight: 400; /* font-normal */
             opacity: 0.9;
         }
- /* Popover/Tooltip styles */
+        /* Popover/Tooltip styles */
         .popover-container {
             position: relative;
             display: inline-block; /* Allows the container to wrap the button */
@@ -128,21 +138,11 @@
 </head>
 <body class="antialiased">
 
-    <!-- Removed padding and centering from this div to allow content to reach edges -->
     <div class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 w-full">
-        <!-- Main title and button are now directly within this full-width container -->
-        <h1 class="text-5xl md:text-6xl font-extrabold text-center text-gray-900 mt-16 mb-8 leading-tight px-4">
+        <!-- Added 'main-title' class for animation -->
+        <h1 class="main-title text-5xl md:text-6xl font-extrabold text-center text-gray-900 mt-16 mb-8 leading-tight px-4">
            POGLEDAJTE NAŠE PRIČE
         </h1>
-        <div class="flex justify-center mb-16 px-4 popover-container">
-            <button id="generateStoryIdeaBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
-                KOLIKO STE SAZNALI?
-            </button>
-            <div class="popover-content">
-                Ovo je primjer dugmeta kojim pozivamo da urade kviz. U ovom popeveru čak možemo objasniti detalje.
-            </div>
-        </div>
-
         <!-- This wrapper now spans full width and contains the photo cards -->
         <div class="column-wrapper flex flex-col md:flex-row justify-stretch items-stretch md:items-stretch w-full">
 
@@ -157,7 +157,7 @@
 
             <!-- Column 2 -->
             <a href="story2.html" class="photo-card w-full md:w-1/3" id="card2">
-                <img src="https://i.pinimg.com/originals/43/2f/bd/432fbd5ebf46429ed38f376e104d38e4.gif" alt="Portrait of another person" class="w-full h-full object-cover">
+                <img src="images/zvjezdana1.jpg" alt="Portrait of another person" class="w-full h-full object-cover">
                 <div class="text-overlay">
                     <h1 class="text-3xl font-bold">Budući horizonti</h1>
                     <p class="text-lg font-normal">Pioneering innovations shaping the world of tomorrow.</p>
@@ -166,10 +166,10 @@
 
             <!-- Column 3 -->
             <a href="story3.html" class="photo-card w-full md:w-1/3" id="card3">
-                <img src="images/zvjezdana_short.gif" alt="Zvjezdana iz Daruvara" class="w-full h-full object-cover">
+                <img src="images/zvjezdana_duugo.gif" alt="Zvjezdana iz Daruvara" class="w-full h-full object-cover">
                 <div class="text-overlay">
                     <h1 class="text-3xl font-bold">Eho prošlih odluka</h1>
-                    <p class="text-lg font-normal">Radim, učim, spremam se za mirovinu</p>
+                    <p class="text-lg font-normal">S iskustvom u akciju i pripreme za mirovinu</p>
                 </div>
             </a>
 
@@ -185,29 +185,27 @@
         gsap.registerPlugin(ScrollTrigger);
 
         document.addEventListener('DOMContentLoaded', () => {
-            // GSAP animation for the main title
-            gsap.from("h1", {
-                opacity: 0,
-                y: -50,
+            // GSAP animation for the main title - changed to .to()
+            gsap.to(".main-title", {
+                opacity: 1,
+                y: 0,
                 duration: 1,
                 ease: "power3.out",
                 delay: 0.5
             });
 
-            // GSAP animation for each photo card
+            // GSAP animation for each photo card - changed to .to()
             gsap.utils.toArray(".photo-card").forEach((card, i) => {
-                gsap.from(card, {
-                    opacity: 0,
-                    y: 50,
+                gsap.to(card, {
+                    opacity: 1,
+                    y: 0,
                     duration: 1,
                     ease: "power3.out",
-                    delay: 0.8 + (i * 0.2), // Stagger the animation
+                    delay: 0.2 + (i * 0.2), // Stagger the animation
                     scrollTrigger: {
                         trigger: card,
-                        start: "top 80%", // When the top of the card enters 80% of the viewport
-                        end: "bottom 20%",
+                        start: "top 85%", // Start animation when card is 85% from the top
                         toggleActions: "play none none none", // Play animation once
-                        // markers: true // Uncomment for debugging ScrollTrigger
                     }
                 });
             });
@@ -227,3 +225,4 @@
     </script>
 </body>
 </html>
+
