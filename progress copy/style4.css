@@ -118,3 +118,34 @@ footer {
   background-color: #2d3748;
   color: white;
 }
+
+/* --- Responsive Adjustments for Mobile --- */
+@media (max-width: 768px) {
+  /*
+    Disable the parallax ('fixed') effect on mobile as it's often buggy.
+    'scroll' makes the background behave like a normal image that scrolls
+    with the page, which is much more reliable on phones.
+  */
+  .content-section,
+  .standard-section {
+    background-attachment: scroll;
+  }
+
+  /* Reduce padding inside text boxes to give more space on small screens */
+  .overlay-text,
+  .standard-section-content {
+    padding: 1.5rem;
+  }
+
+  /*
+    For the title, it often looks better centered on mobile instead of
+    being pinned to the bottom.
+  */
+  #title-section {
+    align-items: center; /* Vertically center the text box */
+  }
+
+  #title-section .overlay-text {
+    margin-bottom: 0; /* Remove the large bottom margin */
+  }
+}
