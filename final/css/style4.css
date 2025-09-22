@@ -45,7 +45,7 @@ body, html {
 
 #title-section {
   /* This one could be a GIF */
-  background-image: url('../images/zvjezdana_once.gif');
+  background-image: url('/../images/zvjezdana_once.gif');
   align-items: flex-end;
 }
 
@@ -56,7 +56,7 @@ body, html {
 }
 
 #section2 {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../images/zvjezdana1.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/../images/zvjezdana1.jpg');
 }
 
 #section3 {
