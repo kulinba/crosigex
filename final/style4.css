@@ -119,6 +119,19 @@ footer {
   color: white;
 }
 
+.zuto{
+  color: yellow;
+  font-weight: 700;
+  border-left: yellow 5px solid;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  margin-bottom: 1rem;
+  max-width: 800px;
+  align-items: center;
+  text-align: left;
+}
+
 /* --- Responsive Adjustments for Mobile --- */
 @media (max-width: 768px) {
   /*
@@ -148,4 +161,9 @@ footer {
   #title-section .overlay-text {
     margin-bottom: 0; /* Remove the large bottom margin */
   }
+
+  #section4 {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/opcije_zvjezdana.webp');
+}
+
 }
