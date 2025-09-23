@@ -132,6 +132,63 @@ footer {
   text-align: left;
 }
 
+/*PHOTO CARDS*/
+ /* Set initial state for photo cards for animation */
+            .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0; /* Removed rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Retained shadow */
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 400px; /* Ensure a minimum height for the cards */
+            background-color: #e0e0e0; /* Fallback background for the card area */
+            flex-grow: 1; /* Allow cards to grow and fill available space */
+
+            /* Initial state before animation */
+            opacity: 0;
+            transform: translateY(50px);
+            }
+        .photo-card:hover {
+            transform: translateY(-8px); /* Subtle lift effect */
+            }
+        .photo-card img {
+            width: 100%;
+            height: 100%; /* Make image fill the card */
+            object-fit: cover;
+            position: absolute; /* Position image behind text */
+            top: 0;
+            left: 0;
+            z-index: 1; /* Place image below text overlay */
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo-card:hover img {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+        .text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem; /* p-6 */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            color: white;
+            z-index: 2; /* Place text overlay above image */
+        }
+        .text-overlay h1 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 0.5rem;
+        }
+        .text-overlay p {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 400; /* font-normal */
+            opacity: 0.9;
+        }
+
 /* --- Responsive Adjustments for Mobile --- */
 @media (max-width: 768px) {
   /*
@@ -165,5 +222,16 @@ footer {
   #section4 {
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/opcije_zvjezdana.webp');
 }
+
+/*PHOTO CARDS MOBILE*/
+ .photo-card {
+                width: 100%; /* Make cards full width on small screens */
+                margin-bottom: 0; /* Remove space between cards on small screens */
+            }
+              .popover-content {
+                width: 90%; /* Adjust width for mobile */
+                margin-left: -45%; /* Re-center for mobile */
+                left: 50%;
+            }
 
 }

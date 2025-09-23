@@ -37,4 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   animatedElements.forEach(element => {
     observer.observe(element);
   });
+  
 });
+
+ 

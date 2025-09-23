@@ -7,6 +7,8 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
   <!-- Link to external CSS -->
   <link rel="stylesheet" href="style4.css">
 </head>
@@ -144,12 +146,80 @@
       </div>
     </div>
   </section>
+<section style="background-color: gray;"><div><h2 class="text-white text-2xl font-bold rounded-lg p-4">PROČITAJTE DRUGE PRIČE</h2></div>
+  <div class="column-wrapper flex flex-col md:flex-row justify-stretch items-stretch md:items-stretch w-full">
+            <!-- Column 1 -->
+            <a href="../example1/index.html" class="photo-card w-full md:w-2/3" id="card1">
+                <img src="../images/mare_pocetna.gif" alt="Portrait of a person" class="w-full h-full object-cover">
+                <div class="text-overlay">
+                    <h1 class="text-3xl font-bold">Planiranje budućnosti</h1>
+                    <p class="text-lg font-normal">Pročitajte priču Martine, 33 koja je poduzetnica i saznajte što misli o mirovini</p>
+                </div>
+            </a>
 
-<footer><p class="zuto">U sklopu financijskog opismenjavanja sadržaj omogućava PBZ CROATIA OSIGURANJE D.D. za upravljanje obveznim mirovinskim fondovima</p>
+            <!-- Column 2 -->
+            <a href="../story2.html" class="photo-card w-full md:w-2/3" id="card2">
+                <img src="images/zvjezdana1.jpg" alt="Portrait of another person" class="w-full h-full object-cover">
+                <div class="text-overlay">
+                    <h1 class="text-3xl font-bold">Budući horizonti</h1>
+                    <p class="text-lg font-normal">Pioneering innovations shaping the world of tomorrow.</p>
+                </div>
+            </a>
+
+            
+
+        </div></section>
+   
+
+<footer>
+  
+  <p class="zuto">U sklopu financijskog opismenjavanja sadržaj omogućava PBZ CROATIA OSIGURANJE D.D. za upravljanje obveznim mirovinskim fondovima</p>
 <p>Design and Content by: LaFe</p></footer>
 
 <!-- Link to external JavaScript -->
 <script src="script4.js"></script>
+ <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
 
+        document.addEventListener('DOMContentLoaded', () => {
+            // GSAP animation for the main title
+            gsap.from("h1", {
+                opacity: 0,
+                y: -50,
+                duration: 1,
+                ease: "power3.out",
+                delay: 0.5
+            });
+
+        // GSAP animation for each photo card - ADDED HERE
+            gsap.utils.toArray(".photo-card").forEach((card, i) => {
+                gsap.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    delay: 0.2 + (i * 0.2), // Stagger the animation
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%", // Start animation when card is 85% from the top
+                        toggleActions: "play none none none", // Play animation once
+                    }
+                });
+            });
+
+            // Optional: Add a subtle parallax effect to the background on scroll
+            gsap.to("body", {
+                backgroundPosition: "50% 100%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });// THIS CLOSING CURLY BRACE SHOULD BE REMOVED
+    </script>
 </body>
 </html>
