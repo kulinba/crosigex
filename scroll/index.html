@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Scrollytelling with Title and Content Blocks</title>
+    <title>Mixed-Content Scrollytelling</title>
 </head>
 <body>
 
-    <!-- Title Section -->
+    <!-- 1. Title Section -->
     <section id="title-section">
         <div class="background"></div>
         <div class="title-content">
@@ -17,93 +17,66 @@
         </div>
     </section>
 
-    <section class="image-section" id="image1">
+    <!-- 2. Initial Scrollytelling Section -->
+    <section class="image-section" id="scrolly1">
         <div class="background"></div>
         <div class="content-wrapper">
-            <div class="content" id="content1">
-                <h2>Section 1</h2>
-                <p>This is the content for section 1...</p>
+            <div class="content">
+                <p>„Mislim da ja previše pričan pa će mi kćerka poslije reći, mama stvarno si...“ Zvjezdana je posjetu jednom od društava za upravljanje obveznim mirovinskim fondovima (OMF) pristupila, reklo bi se - „štreberski“.</p>
+            </div>
+            <div class="content">
+                <p>Pozorno je slušala stručnjakinje i malo-malo zaustavljala priču „Možete li sporije da mi zapamtimo?“</br> One su joj ilustrativnim primjerima objašnjavale što se događa s njezinom imovinom u drugom mirovinskom stupu i koji je put čeka do mirovine.</p>
             </div>
 
-            <div class="content" id="content2">
-                <h2>Section 2</h2>
+             <div class="content">
+                <p>Većina ljudi to razdoblje života doživljava kao vrijeme kada kreće opuštanje i uživanje u plodovima minulog rada. No, rođena Daruvarčanka zna da je mirovina iza ugla i gleda na nju drugačije.</p>
+            </div>
+
+             <div class="content">
+                <h2>Section 4</h2>
                 <p>This is the content for section 2...</p>
             </div>
 
-            <div class="content" id="content3">
-                <h2>Section 3</h2>
-                <p>This is the content for section 3...</p>
+             <div class="content">
+                <h2>Section 5</h2>
+                <p>This is the content for section 2...</p>
             </div>
         </div>
     </section>
 
-    <section class="image-section" id="image2">
+    <!-- 3. Standard Content Section -->
+    <section id="standard-content">
+        <div class="standard-content-wrapper">
+            <h2>Koje su Zvjezdanine opcije?</h2>
+            <h3  class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">Isplata mirovine iz 1. stupa obveznog mirovinskog osiguranja</h3>
+      <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-2/3">
+          Cijeli radni vijek u njega je uplaćivala 15% bruto plaće kako bi se isplaćivale mirovine sadašnjim umirovljenicima, a za nekoliko godina i njoj. Uplaćivala je i 5% bruto plaće u obvezni drugi mirovinski stup (OMF). Odabere li isplatu mirovine samo iz prvoga stupa, sredstva s osobnog računa u drugom stupu prenose se u državni proračun. Mirovinu će tako u cijelosti isplaćivati HZMO.
+        </p>
+      </div>
+      <h3  class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">Isplata kombinirane mirovine iz 1. i 2. stupa obveznog mirovinskog osiguranja</h3>
+      <div class="flex flex-col md:flex-row gap-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-2/3">
+        Osnovnu mirovinu iz prvog stupa isplaćivat će HZMO. Sredstva s osobnog računa u drugom stupu, prenose se u izabrano mirovinsko osiguravajuće društvo, koje onda isplaćuje dio mirovine. Kod kombinirane opcije, postoji mogućnost korištenja jednokratne novčane isplate do najviše 20% ušteđenih sredstava osobnog računa u drugom stupu, ako je osnovna mirovina viša od iznosa najniže mirovine iz prvog stupa.
+        </p>
+        </div>
+    </section>
+
+    <!-- 4. Second Scrollytelling Section -->
+    <section class="image-section" id="scrolly2">
         <div class="background"></div>
         <div class="content-wrapper">
-            <div class="content" id="content1">
-                <h2>Section 1</h2>
-                <p>This is the content for section 1...</p>
+            <div class="content">
+                <h2>Section A</h2>
+                <p>Content for section A...</p>
             </div>
-
-            <div class="content" id="content2">
-                <h2>Section 2</h2>
-                <p>This is the content for section 2...</p>
-            </div>
-
-            <div class="content" id="content3">
-                <h2>Section 3</h2>
-                <p>This is the content for section 3...</p>
+            <div class="content">
+                <h2>Section B</h2>
+                <p>Content for section B...</p>
             </div>
         </div>
     </section>
-<footer>
-  
-  <p class="zuto">U sklopu financijskog opismenjavanja sadržaj omogućava PBZ CROATIA OSIGURANJE D.D. za upravljanje obveznim mirovinskim fondovima</p>
-<p>Design and Content by: LaFe</p></footer>
 
- <script>
-        // Register ScrollTrigger plugin
-        gsap.registerPlugin(ScrollTrigger);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // GSAP animation for the main title
-            gsap.from("h1", {
-                opacity: 0,
-                y: -50,
-                duration: 1,
-                ease: "power3.out",
-                delay: 0.5
-            });
-
-        // GSAP animation for each photo card - ADDED HERE
-            gsap.utils.toArray(".photo-card").forEach((card, i) => {
-                gsap.to(card, {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: "power3.out",
-                    delay: 0.2 + (i * 0.2), // Stagger the animation
-                    scrollTrigger: {
-                        trigger: card,
-                        start: "top 85%", // Start animation when card is 85% from the top
-                        toggleActions: "play none none none", // Play animation once
-                    }
-                });
-            });
-
-            // Optional: Add a subtle parallax effect to the background on scroll
-            gsap.to("body", {
-                backgroundPosition: "50% 100%",
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "body",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true
-                }
-            });
-        });// THIS CLOSING CURLY BRACE SHOULD BE REMOVED
-    </script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -3,25 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     imageSections.forEach(section => {
         const contentBlocks = Array.from(section.querySelectorAll('.content'));
-        
+
+        // Hide all content sections
         contentBlocks.forEach(content => {
             content.classList.remove('active');
-        })
-        
-        if(contentBlocks[0]){
-            contentBlocks[0].classList.add('active')
-        }
+        });
 
-        let currentBlockIndex = 0;
-        
+        // First Content Always be loaded
+        if (contentBlocks.length > 0) {
+            contentBlocks[0].classList.add('active');
+        }
+        // Scroll down after 50% of the scroll
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                  contentBlocks.forEach(content => {
-                    content.classList.remove('active');
-                  })
-                  
-                  entry.target.classList.add('active');
+                    contentBlocks.forEach(content => {
+                        content.classList.remove('active');
+                    });
+
+                    entry.target.classList.add('active');
                 }
             });
         }, {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         contentBlocks.forEach((block, index) => {
-           observer.observe(block);
+            observer.observe(block);
         });
     });
 });
