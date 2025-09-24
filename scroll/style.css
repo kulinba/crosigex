@@ -167,7 +167,7 @@ section {
 /* Basic responsiveness */
 @media (max-width: 768px) {
     .image-section {
-        background-attachment: fixed; /* Disable fixed background on mobile */
+        background-attachment: scroll; /* Disable fixed background on mobile */
     }
 
     /*PHOTO CARDS MOBILE*/
