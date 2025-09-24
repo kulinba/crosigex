@@ -34,11 +34,11 @@ section {
 .image-section {
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    /* Removed background-attachment: fixed; */
 }
 
 #scrolly1 {
-    background-image: url('images/opcije_zvjezdana.webp');
+    background-image: url('images/zvjezdana_static.jpg');
 }
 
 #scrolly2 {
@@ -52,6 +52,13 @@ section {
     width: 100%;
     height: 100%;
     z-index: -1;
+    background-size: cover;
+    background-position: center;
+    /* Parallax scrolling */
+    transform: translateZ(-1px) scale(1.2);
+    transform-origin: 0;
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 .content-wrapper {
@@ -89,9 +96,9 @@ section {
     border-radius: 10px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .image-section {
-        background-attachment: scroll; /* Disable fixed background on mobile */
-    }
+.parallax-content {
+    perspective: 1px;
+    transform-style: preserve-3d;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
