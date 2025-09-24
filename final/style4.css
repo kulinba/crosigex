@@ -196,10 +196,10 @@ footer {
     'scroll' makes the background behave like a normal image that scrolls
     with the page, which is much more reliable on phones.
   */
-/*  .content-section,
+ .content-section,
   .standard-section {
-    background-attachment: scroll;
-  }*/
+    background-attachment: fixed;
+  }
 
   /* Reduce padding inside text boxes to give more space on small screens */
   .overlay-text,
