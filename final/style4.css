@@ -198,7 +198,7 @@ footer {
   */
  .content-section,
   .standard-section {
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 
   /* Reduce padding inside text boxes to give more space on small screens */

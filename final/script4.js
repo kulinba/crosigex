@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, {
     // Trigger when 40% of the element is visible for a smoother feel
-    threshold: 0.4
+    threshold: 0.4 
   });
 
   // Tell the observer to watch each of our animated elements
