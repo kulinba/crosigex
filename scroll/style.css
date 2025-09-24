@@ -1,96 +1,184 @@
 body {
     font-family: sans-serif;
     margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
 }
 
-/* Full-screen sections */
-.full-screen {
-    height: 100vh;
+/* Base styles for all sections (both title and image sections) */
+section {
+    position: relative;
+    min-height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: white; /* Default text color for better visibility */
+}
+
+/* Styles for the title section */
+#title-section {
+    background-image: url('images/zvjezdana_final.gif'); /* Replace with your image */
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Parallax effect */
 }
 
-/* Cover Page Styles */
-#cover {
-    background-image: url(images/zvjezdana_final.gif)
-}
-
-.cover-content {
+/* Added styling for the title content */
+.title-content {
     max-width: 800px;
-    margin: 0 auto;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
 
-/* Shared background for scrollytelling sections */
-.scrolly-section {
+.image-section {
+    position: relative;
     min-height: 100vh;
     width: 100%;
     display: flex;
+    flex-direction: column; /* Stack content blocks vertically */
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: black;
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Parallax effect */
-
-    /* Initial state for fade-in animation */
-    opacity: 0;
-    /transition: opacity 0.5s ease-in-out;
+    background-attachment: fixed;
+    color: white;
+    overflow: hidden; /* Clip overflowing content */
 }
 
-/* Add this class to trigger the fade-in effect */
-.scrolly-section.active {
+/* The key to the mobile-friendly "fixed" background */
+.image-section .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/zvjezdana_static.jpg'); /* Replace with your image */
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* Behind the content */
+}
+
+/* Container for all content blocks */
+.content-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.content {
+    max-width: 800px;
+    margin: 20px auto; /* Spacing between content blocks */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* For readability */
+    border-radius: 10px;
+    color: white; /* Or a color that works well with your image */
+    box-sizing: border-box; /* Include padding in width/height */
+    opacity: 0; /* Make the content hidden by default */
+    transition: opacity 0.5s ease-in-out; /* Add a smooth transition */
+}
+
+/* Class to activate the content appearance */
+.content.active {
     opacity: 1;
 }
 
-
-/* Content box for scrollytelling sections */
-.scrolly-section .content {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    opacity: 0; /* hidden by default */
-    transition: opacity 1s ease-in-out; /* fade-in effect */
+#image1{
+    background-image: url('images/zvjezdana_static.jpg');
 }
 
-.scrolly-section.active .content {
-    opacity: 1; /* visible when section is active */
+#image2{
+    background-image: url('images/opcije_zvjezdana.webp');
 }
 
-/* Different photos to each section */
-#section1 {
-    background-image: url('images/zvjezdana_static.jpg'); /* Replace with your background image */
+.zuto{
+  color: yellow;
+  font-weight: 700;
+  border-left: yellow 5px solid;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  margin-bottom: 1rem;
+  max-width: 800px;
+  align-items: center;
+  text-align: left;
 }
 
-#section2 {
-    background-image: url('images/opcije_zvjezdana.webp'); /* Replace with your background image */
-}
+/*PHOTO CARDS*/
+ /* Set initial state for photo cards for animation */
+            .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0; /* Removed rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Retained shadow */
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 400px; /* Ensure a minimum height for the cards */
+            background-color: #e0e0e0; /* Fallback background for the card area */
+            flex-grow: 1; /* Allow cards to grow and fill available space */
 
-#section3 {
-    background-image: url('images/zvjezdana_static.jpg'); /* Replace with your background image */
-}
+            /* Initial state before animation */
+            opacity: 0;
+            transform: translateY(50px);
+            }
+        .photo-card:hover {
+            transform: translateY(-8px); /* Subtle lift effect */
+            }
+        .photo-card img {
+            width: 100%;
+            height: 100%; /* Make image fill the card */
+            object-fit: cover;
+            position: absolute; /* Position image behind text */
+            top: 0;
+            left: 0;
+            z-index: 1; /* Place image below text overlay */
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo-card:hover img {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+        .text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem; /* p-6 */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            color: white;
+            z-index: 2; /* Place text overlay above image */
+        }
+        .text-overlay h1 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 0.5rem;
+        }
+        .text-overlay p {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 400; /* font-normal */
+            opacity: 0.9;
+        }
 
-/* Responsive adjustments */
+/* Basic responsiveness */
 @media (max-width: 768px) {
-    .scrolly-section .content {
-        max-width: 90%;
+    .image-section {
+        background-attachment: scroll; /* Disable fixed background on mobile */
     }
 
-    .full-screen,
-    .scrolly-section {
-        background-attachment: fixed; /* Disable parallax on mobile */
-    }
+    /*PHOTO CARDS MOBILE*/
+ .photo-card {
+                width: 100%; /* Make cards full width on small screens */
+                margin-bottom: 0; /* Remove space between cards on small screens */
+            }
+              .popover-content {
+                width: 90%; /* Adjust width for mobile */
+                margin-left: -45%; /* Re-center for mobile */
+                left: 50%;
+            }
+
 }

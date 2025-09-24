@@ -3,50 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrollytelling Story</title>
     <link rel="stylesheet" href="style.css">
+    <title>Scrollytelling with Title and Content Blocks</title>
 </head>
 <body>
 
-    <!-- Title/Cover Page -->
-    <section id="cover" class="full-screen">
-        <div class="cover-content">
-            <h1>Your Amazing Story</h1>
-            <p>An introduction to the story...</p>
+    <!-- Title Section -->
+    <section id="title-section">
+        <div class="background"></div>
+        <div class="title-content">
+            <h1>Your Scrollytelling Title</h1>
+            <p>A captivating introduction to your story.</p>
         </div>
     </section>
 
-    <!-- Scrollytelling Sections -->
-    <section class="scrolly-section" id="section1">
-        <div class="content">
-            <h2>Section 1</h2>
-            <p>Content for the first section...</p>
+    <section class="image-section" id="image1">
+        <div class="background"></div>
+        <div class="content-wrapper">
+            <div class="content" id="content1">
+                <h2>Section 1</h2>
+                <p>This is the content for section 1...</p>
+            </div>
+
+            <div class="content" id="content2">
+                <h2>Section 2</h2>
+                <p>This is the content for section 2...</p>
+            </div>
+
+            <div class="content" id="content3">
+                <h2>Section 3</h2>
+                <p>This is the content for section 3...</p>
+            </div>
         </div>
     </section>
 
-     <section class="scrolly-section" id="section1">
-        <div class="content">
-            <h2>Section 1.1</h2>
-            <p>Druga recenica</p>
+    <section class="image-section" id="image2">
+        <div class="background"></div>
+        <div class="content-wrapper">
+            <div class="content" id="content1">
+                <h2>Section 1</h2>
+                <p>This is the content for section 1...</p>
+            </div>
+
+            <div class="content" id="content2">
+                <h2>Section 2</h2>
+                <p>This is the content for section 2...</p>
+            </div>
+
+            <div class="content" id="content3">
+                <h2>Section 3</h2>
+                <p>This is the content for section 3...</p>
+            </div>
         </div>
     </section>
+<footer>
+  
+  <p class="zuto">U sklopu financijskog opismenjavanja sadržaj omogućava PBZ CROATIA OSIGURANJE D.D. za upravljanje obveznim mirovinskim fondovima</p>
+<p>Design and Content by: LaFe</p></footer>
 
-    <section class="scrolly-section" id="section2">
-        <div class="content">
-            <h2>Section 2</h2>
-            <p>Content for the second section...</p>
-        </div>
-    </section>
+ <script>
+        // Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
 
-    <section class="scrolly-section" id="section3">
-        <div class="content">
-            <h2>Section 3</h2>
-            <p>Content for the third section...</p>
-        </div>
-    </section>
+        document.addEventListener('DOMContentLoaded', () => {
+            // GSAP animation for the main title
+            gsap.from("h1", {
+                opacity: 0,
+                y: -50,
+                duration: 1,
+                ease: "power3.out",
+                delay: 0.5
+            });
 
-    <!-- Add more sections as needed -->
+        // GSAP animation for each photo card - ADDED HERE
+            gsap.utils.toArray(".photo-card").forEach((card, i) => {
+                gsap.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    delay: 0.2 + (i * 0.2), // Stagger the animation
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%", // Start animation when card is 85% from the top
+                        toggleActions: "play none none none", // Play animation once
+                    }
+                });
+            });
 
+            // Optional: Add a subtle parallax effect to the background on scroll
+            gsap.to("body", {
+                backgroundPosition: "50% 100%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });// THIS CLOSING CURLY BRACE SHOULD BE REMOVED
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
