@@ -4,88 +4,112 @@ body {
     overflow-x: hidden;
 }
 
+/* Base styles for all sections */
 section {
-    position: relative;
-    min-height: 100vh;
+    position: fixed; /* Stack sections on top of each other */
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100vh; /* Full height */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
+    z-index: 1;
+    overflow: hidden; /* Hide content initially */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
-/* Title Section */
+section.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 5; /* Ensure active section is on top */
+}
+
+/* Content styles */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(50px); /* Slide in from bottom */
+}
+
+.content.active {
+    opacity: 1;
+    transform: translateY(0); /* Slide into place */
+}
+
+/* Backgrounds for different sections */
 #title-section {
     background-image: url('images/zvjezdana_final.gif');
     background-size: cover;
     background-position: center;
+    z-index: 4;
+     justify-content: flex-end;
 }
 
 .title-content {
     max-width: 800px;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
+   /* background-color: rgba(0, 0, 0, 0.2);*/
     border-radius: 10px;
+        /* Add a margin to bottom*/
+    margin-bottom: 50px;
 }
 
-/* Image Sections (Scrollytelling) */
-.image-section {
-    background-size: cover;
-    background-position: center;
-    /* Removed background-attachment: fixed; */
+.title-top{
+    justify-content:flex-start;
+    max-width: 800px;
+    margin-bottom: 350px;
+    padding: 20px;
+}
+
+.title-top h1{
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: left;
+
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.title-top h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 #scrolly1 {
     background-image: url('images/zvjezdana_static.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
 }
 
 #scrolly2 {
-    background-image: url('images/zvjezdana_static.jpg');
-}
-
-.image-section .background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    background-image: url('images/opcije_zvjezdana.webp/');
     background-size: cover;
     background-position: center;
-    /* Parallax scrolling */
-    transform: translateZ(-1px) scale(1.2);
-    transform-origin: 0;
-    backface-visibility: hidden;
-    will-change: transform;
+    z-index: 3;
 }
 
-.content-wrapper {
-    position: relative;
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.content {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    opacity: 0; /* Hidden by default */
-    transition: opacity 0.5s ease-in-out;
-}
-
-.content.active {
-    opacity: 1;
-}
-
-/* Standard Content Section */
 #standard-content {
     background-color: #f0f0f0;
     color: #333;
+    z-index: 1;
 }
 
 .standard-content-wrapper {
@@ -96,9 +120,3 @@ section {
     border-radius: 10px;
 }
 
-.parallax-content {
-    perspective: 1px;
-    transform-style: preserve-3d;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
