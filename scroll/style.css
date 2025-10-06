@@ -54,7 +54,7 @@ section.active {
 
 /* Backgrounds for different sections */
 #title-section {
-    background-image: url('images/zvjezdana_final.gif');
+    background-image: url('images/zvjezdana_once.gif');
     background-size: cover;
     background-position: center;
     z-index: 4;
