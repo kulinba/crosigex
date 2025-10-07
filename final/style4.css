@@ -45,7 +45,7 @@ body, html {
 
 #title-section {
   /* This one could be a GIF */
-  background-image: url('images/zvjezdana_final.gif');
+  background-image: url('images/zvjezdana_once.gif');
   align-items: flex-end;
 }
 
@@ -60,7 +60,7 @@ body, html {
 }
 
 #section3 {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/zvjezdana1.jpg');
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/zvjezdanaikcer.JPG');
 }
 
 #section4 {
@@ -120,9 +120,9 @@ footer {
 }
 
 .zuto{
-  color: yellow;
+  color: beige;
   font-weight: 700;
-  border-left: yellow 5px solid;
+  border-left: beige 5px solid;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;
@@ -198,7 +198,7 @@ footer {
   */
  .content-section,
   .standard-section {
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
 
   /* Reduce padding inside text boxes to give more space on small screens */
