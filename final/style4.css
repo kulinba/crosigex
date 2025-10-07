@@ -49,7 +49,20 @@ body, html {
   align-items: flex-end;
 }
 
+#title-section-pn {
+  /* This one could be a GIF */
+  background-image: url('images/zpise.JPG');
+  align-items: flex-start;
+}
+
+
 #title-section .overlay-text {
+  /* Add some space from the bottom edge */
+  margin-bottom: 8vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#title-section-pn .overlay-text {
   /* Add some space from the bottom edge */
   margin-bottom: 8vh;
   background-color: rgba(0, 0, 0, 0.5);
@@ -198,7 +211,7 @@ footer {
   */
  .content-section,
   .standard-section {
-    background-attachment: fixed;
+    background-attachment: scroll;
   }
 
   /* Reduce padding inside text boxes to give more space on small screens */
