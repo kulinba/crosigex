@@ -20,6 +20,19 @@ body, html {
   position: relative;
 }
 
+.content-section-pn {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 /* The text box that sits on top of the background */
 .overlay-text {
   max-width: 800px;
@@ -51,8 +64,11 @@ body, html {
 
 #title-section-pn {
   /* This one could be a GIF */
-  background-image: url('images/zpise.JPG');
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(34, 1, 1, 0.3)), url('images/zpise.JPG');
+  background-color: black;
   align-items: flex-start;
+  background-size: 75%;
+  background-position-x: right;
 }
 
 
@@ -64,7 +80,7 @@ body, html {
 
 #title-section-pn .overlay-text {
   /* Add some space from the bottom edge */
-  margin-bottom: 8vh;
+  margin-bottom: 2vh;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -229,6 +245,14 @@ footer {
   }
 
   #title-section .overlay-text {
+    margin-bottom: 0; /* Remove the large bottom margin */
+  }
+
+  #title-section-pn {
+    align-items: center; /* Vertically center the text box */
+  }
+
+  #title-section-pn .overlay-text {
     margin-bottom: 0; /* Remove the large bottom margin */
   }
 
