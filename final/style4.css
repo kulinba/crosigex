@@ -24,7 +24,6 @@ body, html {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 2rem;
   box-sizing: border-box;
   background-attachment: fixed;
@@ -64,11 +63,10 @@ body, html {
 
 #title-section-pn {
   /* This one could be a GIF */
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(34, 1, 1, 0.3)), url('images/zpise.JPG');
-  background-color: black;
-  align-items: flex-start;
-  background-size: 75%;
-  background-position-x: right;
+  background-image:  url('images/zgleda_sm.jpg');
+  align-items: center;
+  
+  background-position-x: center;
 }
 
 
@@ -101,7 +99,7 @@ body, html {
 }
 
 #section5-1 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgb(255, 255, 255,1)), url('images/opcije_zvjezdana.webp');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgb(255, 255, 255,1)), url('images/zvjezdanaikcer.JPG');
 }
 
 /* --- Styles for the Standard Content Section --- */
