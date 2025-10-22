@@ -1,7 +1,7 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Nunito', sans-serif;
   background-color: #f0f2f5;
 }
 
@@ -239,7 +239,8 @@ footer {
     being pinned to the bottom.
   */
   #title-section {
-    align-items: center; /* Vertically center the text box */
+    align-items: end; /* Vertically center the text box */
+
   }
 
   #title-section .overlay-text {
