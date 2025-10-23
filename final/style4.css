@@ -102,6 +102,9 @@ body, html {
   background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgb(255, 255, 255,1)), url('images/zvjezdanaikcer.JPG');
 }
 
+#section-kraj {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgb(255, 255, 255,1)), url('images/zvjezdana-pise.png');
+}
 /* --- Styles for the Standard Content Section --- */
 .standard-section {
   /* Make this section full-height and use flexbox to center its content */
@@ -224,9 +227,9 @@ footer {
     with the page, which is much more reliable on phones.
   */
  .content-section,
-  .standard-section {
-    background-attachment: flex
-  ;
+  .standard-section 
+  .standard-section-pn{
+    background-attachment: scroll;
   }
 
   /* Reduce padding inside text boxes to give more space on small screens */
