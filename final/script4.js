@@ -47,23 +47,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const videoElement = document.getElementById('background-video');
     
     let sourceElement = videoElement.querySelector('source');
+
+    // 1. Ensure the <source> element exists in the DOM
     if (!sourceElement) {
         sourceElement = document.createElement('source');
         sourceElement.type = 'video/mp4';
-        videoElement.appendChild(sourceElement);
+        videoElement.appendChild(sourceElement); // MUST append before setting src/load
     }
-
-    // 🌟 1. Use a variable to track the last determined source type (mobile/desktop)
-    let currentSourceIsMobile = window.innerWidth < mobileBreakpoint; 
     
+    // 2. Initial Load Logic (Always runs once on page load)
+    const isMobileInitial = window.innerWidth < mobileBreakpoint;
+    const initialSrc = isMobileInitial ? mobileSource : desktopSource;
+    
+    // Set the source *after* the element is guaranteed to be attached
+    sourceElement.src = initialSrc;
+
+    // 3. Trigger the load and play
+    // This tells the browser to process the newly set source.
+    videoElement.load(); 
+    
+    videoElement.play().catch(error => {
+        // This is normal if the browser strictly blocks autoplay, but necessary to try.
+        console.warn('Initial video failed to autoplay (browser restriction likely):', error);
+    });
+    
+    // Track the current state after the initial load
+    let currentSourceIsMobile = isMobileInitial; 
+
+    // --------------------------------------------------------------------------
+
+    // 4. RESIZE/ORIENTATION CHANGE LOGIC (Only runs if a meaningful switch occurs)
     const setVideoSource = () => {
         const isMobile = window.innerWidth < mobileBreakpoint;
-        const newSrc = isMobile ? mobileSource : desktopSource;
-
-        // 🌟 2. Only proceed if the new screen state (mobile/desktop) is DIFFERENT
-        // from the last state, preventing reloads on minor resizes/scrolls.
+        
+        // Only proceed if the screen crossed the breakpoint
         if (isMobile !== currentSourceIsMobile) { 
             
+            const newSrc = isMobile ? mobileSource : desktopSource;
+            
+            // Apply new source
             sourceElement.src = newSrc;
             
             // CRITICAL STEP: Reload and play the video
@@ -72,21 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn('Video failed to autoplay after source change:', error);
             });
             
-            // 🌟 3. Update the state tracker
+            // Update the state tracker
             currentSourceIsMobile = isMobile;
         }
-        // If isMobile == currentSourceIsMobile, no reload happens, solving the issue.
     };
 
-    // Run on page load
-    setVideoSource();
-
-    // 🌟 4. Implement Debounce for performance/stability on true resizing.
+    // 5. Implement Debounce for performance/stability on true resizing.
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(setVideoSource, 150); // wait 150ms before running
+        resizeTimer = setTimeout(setVideoSource, 150);
     });
 });
-
- 
