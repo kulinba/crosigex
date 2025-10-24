@@ -63,9 +63,8 @@ body, html {
 
 #title-section-pn {
   /* This one could be a GIF */
-  background-image:  url('images/zgleda_sm.jpg');
+  background-image:  url('images/zvjezdana-otkriva.webp');
   align-items: center;
-  
   background-position-x: center;
 }
 
