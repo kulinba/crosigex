@@ -2,7 +2,8 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Nunito', sans-serif;
-  background-color: #f0f2f5;
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0, 0, 0, 0.3)), url('images/opcije_zvjezdana.webp');
+
 }
 
 /* Common style for full-screen sections with background images */
@@ -237,7 +238,7 @@ footer {
   */
  .content-section,
   .standard-section,
-  .content-section-pn{
+  .content-section-pn {
     background-attachment: scroll;
   }
 
@@ -271,6 +272,29 @@ footer {
 
   #section4 {
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/opcije_zvjezdana.webp');
+
+  background-attachment: scroll;
+}
+
+#section6-1 {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255,1)), url('images/zvjezdana-otkriva.webp');
+  background-attachment: scroll;
+}
+
+#section7 {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgb(255, 255, 255,1)), url('images/zvjezdana-slusa.jpg');
+  background-attachment: scroll;
+}
+
+#section7 {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgb(255, 255, 255,1)), url('images/zvjezdana-slusa.jpg');
+  background-attachment: scroll;
+}
+
+body, html {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0, 0, 0, 0.3)), url('images/opcije_zvjezdana.webp');
+  background-attachment: scroll;
+
 }
 
 /*PHOTO CARDS MOBILE*/
