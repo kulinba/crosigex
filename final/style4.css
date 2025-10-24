@@ -57,7 +57,7 @@ body, html {
 
 #title-section {
   /* This one could be a GIF */
-  background-image: url('images/zvjezdana1.jpg');
+  background-color: #2d3748;
   align-items: flex-end;
 }
 
