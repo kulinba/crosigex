@@ -41,15 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Define video sources and mobile breakpoint
     const desktopSource = 'images/zvjezdana.mp4';
     const mobileSource = 'images/zvjezdana11low.mp4';
-    const mobileBreakpoint = 768; // Standard breakpoint for tablets/mobile
-
-    // 2. Get the video and current source elements
+    const mobileBreakpoint = 768;
     const videoElement = document.getElementById('background-video');
-
-    // 3. Create a source element if it doesn't exist
+    
     let sourceElement = videoElement.querySelector('source');
     if (!sourceElement) {
         sourceElement = document.createElement('source');
@@ -57,31 +53,40 @@ document.addEventListener('DOMContentLoaded', () => {
         videoElement.appendChild(sourceElement);
     }
 
-    // 4. Function to check width and set source
+    // 🌟 1. Use a variable to track the last determined source type (mobile/desktop)
+    let currentSourceIsMobile = window.innerWidth < mobileBreakpoint; 
+    
     const setVideoSource = () => {
         const isMobile = window.innerWidth < mobileBreakpoint;
         const newSrc = isMobile ? mobileSource : desktopSource;
 
-        // Only update if the source needs to change
-        if (sourceElement.src !== newSrc) {
+        // 🌟 2. Only proceed if the new screen state (mobile/desktop) is DIFFERENT
+        // from the last state, preventing reloads on minor resizes/scrolls.
+        if (isMobile !== currentSourceIsMobile) { 
+            
             sourceElement.src = newSrc;
             
-            // 5. CRITICAL STEP: Reload the video to apply the new source
+            // CRITICAL STEP: Reload and play the video
             videoElement.load();
-            
-            // 6. Attempt to restart playback (handles potential mobile restrictions)
             videoElement.play().catch(error => {
-                // If play() fails (e.g., browser blocked it), you can log the error
                 console.warn('Video failed to autoplay after source change:', error);
             });
+            
+            // 🌟 3. Update the state tracker
+            currentSourceIsMobile = isMobile;
         }
+        // If isMobile == currentSourceIsMobile, no reload happens, solving the issue.
     };
 
     // Run on page load
     setVideoSource();
 
-    // Run on browser resize to handle device rotation or window resizing
-    window.addEventListener('resize', setVideoSource);
+    // 🌟 4. Implement Debounce for performance/stability on true resizing.
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(setVideoSource, 150); // wait 150ms before running
+    });
 });
 
  
