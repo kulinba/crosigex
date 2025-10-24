@@ -100,7 +100,15 @@ body, html {
 }
 
 #section5-1 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgb(255, 255, 255,1)), url('images/zvjezdanaikcer.JPG');
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255,1)), url('images/zvjezdanaikcer.JPG');
+}
+
+#section6-1 {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255,1)), url('images/zvjezdana-otkriva.webp');
+}
+
+#section7 {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgb(255, 255, 255,1)), url('images/zvjezdana-slusa.jpg');
 }
 
 #section-kraj {

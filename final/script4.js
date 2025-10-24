@@ -41,68 +41,66 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const desktopSource = 'images/zvjezdana.mp4';
+    const desktopSource = 'images/zvjezdana720.mp4';
     const mobileSource = 'images/zvjezdana11low.mp4';
     const mobileBreakpoint = 768;
     const videoElement = document.getElementById('background-video');
-    
-    let sourceElement = videoElement.querySelector('source');
 
-    // 1. Ensure the <source> element exists in the DOM
-    if (!sourceElement) {
-        sourceElement = document.createElement('source');
-        sourceElement.type = 'video/mp4';
-        videoElement.appendChild(sourceElement); // MUST append before setting src/load
-    }
-    
-    // 2. Initial Load Logic (Always runs once on page load)
-    const isMobileInitial = window.innerWidth < mobileBreakpoint;
-    const initialSrc = isMobileInitial ? mobileSource : desktopSource;
-    
-    // Set the source *after* the element is guaranteed to be attached
-    sourceElement.src = initialSrc;
+    // Create the source element once and append it
+    const sourceElement = document.createElement('source');
+    sourceElement.type = 'video/mp4';
+    videoElement.appendChild(sourceElement);
 
-    // 3. Trigger the load and play
-    // This tells the browser to process the newly set source.
-    videoElement.load(); 
-    
-    videoElement.play().catch(error => {
-        // This is normal if the browser strictly blocks autoplay, but necessary to try.
-        console.warn('Initial video failed to autoplay (browser restriction likely):', error);
-    });
-    
-    // Track the current state after the initial load
-    let currentSourceIsMobile = isMobileInitial; 
+    let currentSourceIsMobile = window.innerWidth < mobileBreakpoint;
 
-    // --------------------------------------------------------------------------
-
-    // 4. RESIZE/ORIENTATION CHANGE LOGIC (Only runs if a meaningful switch occurs)
+    // --- Main function to set the video source and attempt to play ---
     const setVideoSource = () => {
         const isMobile = window.innerWidth < mobileBreakpoint;
-        
-        // Only proceed if the screen crossed the breakpoint
-        if (isMobile !== currentSourceIsMobile) { 
-            
+
+        // Only switch the source if the viewport has crossed the breakpoint
+        if (sourceElement.src.includes(isMobile ? desktopSource : mobileSource) || sourceElement.src === "") {
             const newSrc = isMobile ? mobileSource : desktopSource;
-            
-            // Apply new source
             sourceElement.src = newSrc;
-            
-            // CRITICAL STEP: Reload and play the video
-            videoElement.load();
-            videoElement.play().catch(error => {
-                console.warn('Video failed to autoplay after source change:', error);
-            });
-            
-            // Update the state tracker
+            videoElement.load(); // Tell the video element to load the new source
             currentSourceIsMobile = isMobile;
+        }
+
+        // Always attempt to play, especially after a source change or on initial load
+        const playPromise = videoElement.play();
+
+        if (playPromise !== undefined) {
+            playPromise.catch(error => {
+                // Autoplay was prevented. This is common on mobile.
+                // The user interaction fallback will handle this.
+                console.warn('Autoplay was prevented by the browser.', error);
+            });
         }
     };
 
-    // 5. Implement Debounce for performance/stability on true resizing.
+    // --- Initial Load ---
+    setVideoSource();
+
+    // --- Fallback for Mobile Autoplay Restrictions ---
+    // If autoplay fails, this will play the video on the first user interaction.
+    const playOnFirstInteraction = () => {
+        if (videoElement.paused) {
+            videoElement.play().catch(error => {
+                // This might still fail if there are other issues, but it's our best shot.
+                console.warn('Fallback play attempt failed.', error);
+            });
+        }
+        // Remove the event listener so it only runs once
+        document.body.removeEventListener('touchstart', playOnFirstInteraction);
+        document.body.removeEventListener('scroll', playOnFirstInteraction);
+    };
+    document.body.addEventListener('touchstart', playOnFirstInteraction);
+    document.body.addEventListener('scroll', playOnFirstInteraction);
+
+
+    // --- Debounced Resize Logic ---
     let resizeTimer;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(setVideoSource, 150);
+        resizeTimer = setTimeout(setVideoSource, 250); // Debounce for performance
     });
 });
