@@ -228,8 +228,8 @@ footer {
     with the page, which is much more reliable on phones.
   */
  .content-section,
-  .standard-section 
-  .standard-section-pn{
+  .standard-section,
+  .content-section-pn{
     background-attachment: scroll;
   }
 
