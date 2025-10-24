@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Define video sources and mobile breakpoint
     const desktopSource = 'images/zvjezdana.mp4';
-    const mobileSource = 'images/zvjezdana11.mp4';
+    const mobileSource = 'images/zvjezdana11low.mp4';
     const mobileBreakpoint = 768; // Standard breakpoint for tablets/mobile
 
     // 2. Get the video and current source elements
