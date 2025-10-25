@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zvjezdanina priča: Scrollytelling</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #fff; /* Default background */
+        }
+
+        /* --- Scrollytelling Container --- */
+        /* This holds the two layers: graphics on the left, text on the right */
+        .scrolly-container {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr; /* Single column on mobile */
+        }
+
+        /* --- Graphics Layer (The "Filmstrip") --- */
+        /* This element will stick to the screen */
+        .scrolly-graphics {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden; /* Acts as the "window" for the filmstrip */
+        }
+        
+        /* Each individual background graphic */
+        .scrolly-graphic {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- Text/Steps Layer --- */
+        /* This is the column that the user actually scrolls through */
+        .scrolly-steps {
+            position: relative;
+            z-index: 10;
+            padding: 10vh 2rem; /* Give space at top and bottom */
+        }
+
+        /* Individual text panel */
+        .step {
+            min-height: 80vh; /* This provides the scrolling distance */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .step-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 500px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        
+        /* Highlight the active text panel */
+        .step.active .step-content {
+            background-color: rgba(0, 0, 0, 0.75);
+        }
+
+        .step-content p {
+            font-size: 1.25rem;
+            line-height: 1.7;
+        }
+
+        /* --- Standard Content Section --- */
+        .standard-section {
+            background-color: #f7fafc;
+            color: #2d3748;
+            padding: 4rem 2rem;
+        }
+        .standard-section-content {
+            max-width: 800px;
+            margin: auto;
+        }
+        
+        /* --- Desktop Layout --- */
+        @media (min-width: 768px) {
+            .scrolly-container {
+                grid-template-columns: 1fr 1fr; /* Two columns on desktop */
+            }
+            .scrolly-steps {
+                grid-column: 2 / 3; /* Text on the right */
+            }
+            .scrolly-graphics {
+                grid-column: 1 / 2; /* Graphics on the left */
+                grid-row: 1 / 2;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1: Title Section (Video) -->
+    <section class="relative h-screen w-full overflow-hidden flex flex-col justify-end items-center">
+        <video id="background-video" class="absolute top-0 left-0 w-full h-full object-cover" autoplay muted loop playsinline>
+            <source src="images/zvjezdana720.mp4" type="video/mp4">
+        </video>
+        <div class="relative z-10 text-center mb-16">
+            <h1 class="text-white text-5xl md:text-6xl font-bold rounded-lg p-4">EHO PROŠLIH ODLUKA</h1>
+            <h2 class="text-white text-3xl font-bold rounded-lg p-4">S iskustvom u akciju i pripreme za mirovinu</h2>
+        </div>
+    </section>
+
+    <!-- First Scrollytelling Sequence -->
+    <div class="scrolly-container">
+        <!-- The Graphics Layer (Backgrounds) -->
+        <div class="scrolly-graphics">
+            <!-- These are the background images that will be revealed -->
+            <div class="scrolly-graphic" id="graphic1" style="background-image: url('images/zgleda.JPG');"></div>
+            
+        </div>
+        <!-- The Steps Layer (Text) -->
+        <div class="scrolly-steps">
+            <!-- Step 1 Text -->
+            <div class="step" data-step-for="graphic1">
+                <div class="step-content">
+                    <p>„Mislim da ja previše pričam pa će mi kćerka poslije reći, mama stvarno si...“ Zvjezdana je posjetu jednom od društava za upravljanje obveznim mirovinskim fondovima (OMF-ovima) pristupila, reklo bi se - „štreberski“.</p>
+                </div>
+            </div>
+            <!-- Step 2 Text -->
+            <div class="step" data-step-for="graphic1">
+                <div class="step-content">
+                    <p>Sa suprugom Borisom vodi fotografski studio, po struci je dentalna tehničarka. Ali ništa je to nije smelo da gura naprijed! Sa svojih 58 godina uči njemački, nedavno je završila tečaj web dizajna i vjeruje u cjeloživotno obrazovanje.</p>
+                </div>
+            </div>
+            <!-- Step 3 Text -->
+            <div class="step" data-step-for="graphic1">
+                 <div class="step-content">
+                    <p>Ponukane radionicom Zvjezdana i Tea su po povratku u Daruvar u priču uvukle i tatu. Putem portala e-Građani, provjerili su koliko ima do mirovine i koliko bi iznosila prema informativnom izračunu. Sreća da su to napravili.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Standard Content Section -->
+    <section class="standard-section">
+        <div class="standard-section-content">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Od zahtjeva do prve isplate mirovine</h2>
+            <p>Najranije mjesec dana prije prestanka mirovinskog osiguranja Zvjezdana može HZMO-u predati zahtjev za ostvarivanje prava na starosnu ili prijevremenu starosnu mirovinu...</p>
+        </div>
+    </section>
+    
+     <!-- First Scrollytelling Sequence -->
+    <div class="scrolly-container">
+        <!-- The Graphics Layer (Backgrounds) -->
+        <div class="scrolly-graphics">
+            <!-- These are the background images that will be revealed -->
+            
+            <div class="scrolly-graphic" id="graphic2" style="background-image: url('images/zvjezdana-slusa.jpg');"></div>
+            
+        </div>
+        <!-- The Steps Layer (Text) -->
+        <div class="scrolly-steps">
+            <!-- Step 1 Text -->
+            <div class="step" data-step-for="graphic2">
+                <div class="step-content">
+                    <p>„Mislim da ja previše pričam pa će mi kćerka poslije reći, mama stvarno si...“ Zvjezdana je posjetu jednom od društava za upravljanje obveznim mirovinskim fondovima (OMF-ovima) pristupila, reklo bi se - „štreberski“.</p>
+                </div>
+            </div>
+            <!-- Step 2 Text -->
+            <div class="step" data-step-for="graphic2">
+                <div class="step-content">
+                    <p>Sa suprugom Borisom vodi fotografski studio, po struci je dentalna tehničarka. Ali ništa je to nije smelo da gura naprijed! Sa svojih 58 godina uči njemački, nedavno je završila tečaj web dizajna i vjeruje u cjeloživotno obrazovanje.</p>
+                </div>
+            </div>
+            <!-- Step 3 Text -->
+            <div class="step" data-step-for="graphic2">
+                 <div class="step-content">
+                    <p>Ponukane radionicom Zvjezdana i Tea su po povratku u Daruvar u priču uvukle i tatu. Putem portala e-Građani, provjerili su koliko ima do mirovine i koliko bi iznosila prema informativnom izračunu. Sreća da su to napravili.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- You can add more .scrolly-container sections or .standard-section sections here -->
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const steps = gsap.utils.toArray(".step");
+            const graphics = gsap.utils.toArray(".scrolly-graphic");
+
+            // Make the graphics invisible by default
+            gsap.set(graphics, { autoAlpha: 0 });
+            
+            // Set the first graphic to be visible
+            gsap.set(graphics[0, { autoAlpha: 1 });
+
+            steps.forEach((step, i) => {
+                ScrollTrigger.create({
+                    trigger: step,
+                    start: "top center",
+                    end: "bottom center",
+                    // When a step enters the center, fade in its graphic and fade out the others
+                    onEnter: () => {
+                        gsap.to(graphics, { autoAlpha: (j) => (j === i ? 1 : 0) });
+                    },
+                    onEnterBack: () => {
+                        gsap.to(graphics, { autoAlpha: (j) => (j === i ? 1 : 0) });
+                    },
+                    // Optional: Highlight the active text panel
+                    toggleClass: { targets: step, className: "active" }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

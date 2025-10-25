@@ -2,7 +2,7 @@ body, html {
   margin: 0;
   padding: 0;
   font-family: 'Nunito', sans-serif;
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0, 0, 0, 0.3)), url('images/opcije_zvjezdana.webp');
+  /*background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0, 0, 0, 0.3)), url('images/opcije_zvjezdana.webp');*/
 
 }
 
@@ -124,7 +124,7 @@ body, html {
   align-items: center;
   padding: 60px 20px;
   position: relative;
-  background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/opcije_zvjezdana.webp');
+  background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8));
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
@@ -139,7 +139,7 @@ body, html {
   background-color: white; /* Solid background for the text */
   padding: 2.5rem;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Optional nice shadow */
+  /*box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Optional nice shadow */
   
   /* Animation styles - these remain the same */
   opacity: 0;
@@ -272,7 +272,6 @@ footer {
 
   #section4 {
   background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/opcije_zvjezdana.webp');
-
   background-attachment: scroll;
 }
 
@@ -291,11 +290,6 @@ footer {
   background-attachment: scroll;
 }
 
-body, html {
-  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0, 0, 0, 0.3)), url('images/opcije_zvjezdana.webp');
-  background-attachment: scroll;
-
-}
 
 /*PHOTO CARDS MOBILE*/
  .photo-card {
