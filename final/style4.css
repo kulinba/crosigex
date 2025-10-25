@@ -105,7 +105,7 @@ body, html {
 }
 
 #section6-1 {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255,1)), url('images/zvjezdana-otkriva.webp');
+  background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255,1)50%), url('images/zvjezdana-otkriva.webp');
 }
 
 #section7 {
