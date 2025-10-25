@@ -91,6 +91,15 @@
             max-width: 800px;
             margin: auto;
         }
+
+        .pozadina{ 
+                 background-color: rgba(0, 0, 0, 0.5);
+                 max-width: 800px;
+                 padding: 2rem;
+                text-align: center;
+            }
+
+            
         
         /* --- Desktop Layout --- */
         @media (min-width: 768px) {
@@ -104,6 +113,16 @@
                 grid-column: 1 / 2; /* Graphics on the left */
                 grid-row: 1 / 2;
             }
+
+            .pozadina{ 
+                 background-color: rgba(0, 0, 0, 0.75);
+                 max-width: 800px;
+                text-align: center;
+                padding: 2rem;
+                border-radius: none;
+               
+            }
+
         }
     </style>
 </head>
@@ -198,6 +217,105 @@
         </div>
     </section>
     
+    <!-- Second Scrollytelling Sequence -->
+    <div class="scrolly-container">
+        <!-- The Graphics Layer (Backgrounds) -->
+        <div class="scrolly-graphics">
+            <!-- These are the background images that will be revealed -->
+            
+            <div class="scrolly-graphic" id="graphic3" style="background-image: url('images/zvjezdanaikcer.JPG');"></div>
+          </div>
+        <!-- The Steps Layer (Text) -->
+        <div class="scrolly-steps">
+            <!-- Step 2 Text -->
+            <div class="step" data-step-for="graphic3">
+                <div class="step-content">
+       <p class="text-white text-xl md:text-2xl m-4">Ponukane radionicom Zvjezdana i Tea su po povratku u Daruvar u priču uvukle i tatu. Putem portala e-Građani, provjerili su koliko ima do mirovine i koliko bi iznosila prema informativnom izračunu. Sreća da su to napravili.</p>
+   
+      <p class="text-white text-xl md:text-2xl m-4">„Malo smo to proučavali i vidjeli da mu nije upisan staž koji ima iz druge države. Sad to još treba rješavati pred mirovinu.“ kaže Tea.</p>
+    
+      <p class="text-white text-xl md:text-2xl m-4">Treba prevenirati takva iznenađenja redovnim provjerama godina staža, provjerom uplata doprinosa svojih poslodavaca i jesu li svi osobni podaci ažurirani.</p>
+      
+     <p class="text-white text-xl md:text-2xl m-4">Takav vid kontrole itekako se preporuča, ma koliko godina bilo do mirovine. No pred sam početak mirovine, kreće akcija - treba znati što i kojim redom činiti.</p>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Standard Content Section -->
+    <section class="standard-section">
+        <div class="standard-section-content">
+       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Od zahtjeva do prve isplate mirovine</h2>
+    <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
+        Najranije mjesec dana prije prestanka mirovinskog osiguranja Zvjezdana može HZMO-u predati zahtjev za ostvarivanje prava na starosnu ili prijevremenu starosnu mirovinu.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
+       Kada utvrde da je sve ispravno, dobit će privremeno rješenje o priznavanju prava na mirovinu i isplati predujma do konačnog rješenja.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
+      Središnji registar osiguranika (REGOS) zatim kreće prikupljati informativne izračune Zvjezdanine mirovine od HZMO-a i mirovinskih osiguravajućih društava.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
+       Na kućnu adresu zaprimit će informativni izračun mirovine – samo iz prvog stupa i kombinirane iz prvog i drugog. Na osnovu toga donijet će svoju konačnu odluku i predati izjavu REGOS-u.</p>
+      </div>
+    </div>
+    </section>
+
+     <!-- Section 1: Subtitle Section (Photo subtitle) -->
+    <section class="relative h-screen w-full overflow-hidden flex flex-col justify-end items-center">
+        <img id="background-video" class="absolute top-0 left-0 w-full h-full object-cover" src="images/zvjezdana-otkriva.webp">
+        <div class="relative z-10 text-center mb-16">
+            <h1 class="text-white text-5xl md:text-6xl font-bold rounded-lg p-4 pozadina">DRUGI STUP IZ PRVE RUKE</h1>
+        </div>
+    </section>
+
+    <!-- Second Scrollytelling Sequence -->
+    <div class="scrolly-container">
+        <!-- The Graphics Layer (Backgrounds) -->
+        <div class="scrolly-graphics">
+            <!-- These are the background images that will be revealed -->
+            
+            <div class="scrolly-graphic" id="graphic4" style="background-image: url('images/zvjezdana-pise.png');"></div>
+          </div>
+        <!-- The Steps Layer (Text) -->
+        <div class="scrolly-steps">
+            <!-- Step 2 Text -->
+            <div class="step" data-step-for="graphic4">
+                <div class="step-content">
+       <p class="text-white text-xl md:text-2xl m-4">U drugom stupu obveznog mirovinskog osiguranja Zvjezdanin je novac, njezina je to imovina na osobnom računu, štednja za „stare dane“, odnosno njezina individualna kapitalizirana štednja.</p>
+      <p class="text-white text-xl md:text-2xl m-4">Individualna - jer je riječ o Zvjezdaninoj osobnoj imovini odnosno uplaćenim mirovinskim doprinosima koji se tijekom radnog vijeka prikupljaju na njezinom osobnom računu.</p>
+      <p class="text-white text-xl md:text-2xl m-4">Kapitalizirana – zato što taj novac ne „sjedi“ samo na osobnom računu već se ulaganjima tih sredstava nastoji ostvariti prinos, odnosno zarada. A ostvareni prinos utječe na vrijednost štednje u fondu.</p>
+      <p class="text-white text-xl md:text-2xl m-4">Ako nije do sada, krajnje je vrijeme da se raspita o stanju svog računa. Sredstva iz drugog stupa namijenjena su isključivo za isplatu mirovine, čija će visina ponajprije ovisiti o iznosu uplaćenih i kapitaliziranih sredstava, ali i o vrsti i obliku odabrane mirovine.</p>
+      <p class="text-white text-xl md:text-2xl m-4">„Htjela bih vidjeti što možemo i sva ta naša prava...“, Zvjezdana ovime pogađa u metu!</p>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Standard Content Section -->
+    <section class="standard-section">
+        <div class="standard-section-content">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Tvoje pravo na propitkivanje – Što je s mojim osobnim računom?</h2>
+    <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
+        Stanje računa može se provjeriti besplatnim pozivom na info telefon ili na mrežnim stranicama društva uz identifikaciju PIN-om ili korisničkim brojem, također i putem aplikacije.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
+    Redovna izvješća stižu mailom, SMS-om ili poštom – kako se već odabere.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
+      Račun se vodi u obračunskim jedinicama, a zbroj vrijednosti svih obračunskih jedinica na računima svih članova obveznog mirovinskog fonda, predstavlja ukupnu vrijednost fonda.</p>
+      </div>
+    </div>
+    </section>
      
     <!-- You can add more .scrolly-container sections or .standard-section sections here -->
 
