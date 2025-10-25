@@ -55,10 +55,11 @@
 
         /* Individual text panel */
         .step {
-            min-height: 60vh; /* This provides the scrolling distance */
+            min-height: 40vh; /* This provides the scrolling distance */
             display: flex;
             justify-content: center;
             align-items: center;
+            margin-bottom: 20vh;
         }
 
         .step-content {
@@ -70,7 +71,7 @@
             text-align: center;
             transition: background-color 0.3s;
             
-            margin-bottom: 20vh;
+           /* margin-bottom: 20vh;*/
         }
         
         /* Highlight the active text panel */
@@ -137,7 +138,7 @@
             max-width: 800px;
             text-align: center;
             transition: background-color 0.3s;
-           
+            margin-top: 10vh;
             margin-bottom: 20vh;
         }
 
@@ -163,7 +164,7 @@
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
             <div class="scrolly-graphic" id="graphic1" style="background-image: url('images/zgleda.JPG');"></div>
-             <div class="scrolly-graphic" id="graphic2" style="background-image: url('images/zvjezdana-slusa.jpg');"></div>
+            <div class="scrolly-graphic" id="graphic2" style="background-image: url('images/zvjezdana-slusa.jpg');"></div>
         </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
@@ -315,35 +316,63 @@
     <!-- You can add more .scrolly-container sections or .standard-section sections here -->
 
     <script>
-        gsap.registerPlugin(ScrollTrigger);
+      gsap.registerPlugin(ScrollTrigger);
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const steps = gsap.utils.toArray(".step");
-            const graphics = gsap.utils.toArray(".scrolly-graphic");
+document.addEventListener('DOMContentLoaded', () => {
+    // This function can be called for multiple scrollytelling sections if needed
+    function setupScrollytelling(containerSelector) {
+        const container = document.querySelector(containerSelector);
+        if (!container) return;
 
-            // Make the graphics invisible by default
-            gsap.set(graphics, { autoAlpha: 1 });
-            
-            // Set the first graphic to be visible
+        const steps = container.querySelectorAll(".step");
+        const graphics = container.querySelectorAll(".scrolly-graphic");
+
+        // --- 1. SET THE INITIAL STATE ---
+        
+        // First, hide ALL graphics in this section
+        gsap.set(graphics, { autoAlpha: 0 });
+        
+        // Then, instantly reveal only the FIRST graphic.
+        // This is what makes it appear before any scrolling.
+        if (graphics.length > 0) {
             gsap.set(graphics[0], { autoAlpha: 1 });
+        }
 
-            steps.forEach((step, i) => {
-                ScrollTrigger.create({
-                    trigger: step,
-                    start: "top center",
-                    end: "bottom center",
-                    // When a step enters the center, fade in its graphic and fade out the others
-                    onEnter: () => {
-                        gsap.to(graphics, { autoAlpha: (j) => (j === i ? 1 : 0) });
-                    },
-                    onEnterBack: () => {
-                        gsap.to(graphics, { autoAlpha: (j) => (j === i ? 1 : 0) });
-                    },
-                    // Optional: Highlight the active text panel
-                    toggleClass: { targets: step, className: "active" }
-                });
+        // --- 2. CREATE TRIGGERS FOR EACH STEP ---
+        
+        // We still create a trigger for every step, including the first one.
+        // The trigger for a step is responsible for making sure its corresponding graphic is visible.
+        steps.forEach((step, i) => {
+            ScrollTrigger.create({
+                trigger: step,
+                start: "top 80%", // You can adjust this as we discussed
+                end: "bottom center",
+                
+                // When a step is in the center, ensure its graphic is visible and others are not.
+                onEnter: () => {
+                    // Animate all graphics: fade the target one IN, and all others OUT.
+                    gsap.to(graphics, { 
+                        autoAlpha: (j) => (j === i ? 1 : 0), // Ternary operator: if index matches, opacity is 1, else 0
+                        duration: 0.5 
+                    });
+                },
+                // Do the same when scrolling back up
+                onEnterBack: () => {
+                    gsap.to(graphics, { 
+                        autoAlpha: (j) => (j === i ? 1 : 0),
+                        duration: 0.5
+                    });
+                },
+                
+                toggleClass: { targets: step, className: "active" }
             });
         });
+    }
+
+    // Initialize your scrollytelling container(s)
+    setupScrollytelling('.scrolly-container'); 
+    // If you had another one, you could call it again: setupScrollytelling('#second-scrolly-container');
+});
     </script>
 </body>
 </html>
