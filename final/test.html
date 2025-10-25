@@ -55,7 +55,7 @@
 
         /* Individual text panel */
         .step {
-            min-height: 80vh; /* This provides the scrolling distance */
+            min-height: 60vh; /* This provides the scrolling distance */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -69,6 +69,8 @@
             max-width: 500px;
             text-align: center;
             transition: background-color 0.3s;
+            
+            margin-bottom: 20vh;
         }
         
         /* Highlight the active text panel */
@@ -106,22 +108,38 @@
             .scrolly-container {
                 grid-template-columns: 1fr 1fr; /* Two columns on desktop */
             }
-            .scrolly-steps {
-                grid-column: 2 / 3; /* Text on the right */
+            /* On desktop, the layers are placed in the same grid cell to overlap */
+            .scrolly-graphics, .scrolly-steps {
+                grid-column: 1 / -1; /* Span the full grid width */
+                grid-row: 1 / -1;    /* Span the full grid height */
             }
+             /* The graphics container now takes up the full screen height */
             .scrolly-graphics {
-                grid-column: 1 / 2; /* Graphics on the left */
-                grid-row: 1 / 2;
+                height: 100vh;
             }
 
+            .step {
+                min-height: 90vh; /* Give more scrolling room on desktop */
+            }
             .pozadina{ 
                  background-color: rgba(0, 0, 0, 0.75);
                  max-width: 800px;
                 text-align: center;
                 padding: 2rem;
                 border-radius: none;
-               
             }
+
+             .step-content {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 800px;
+            text-align: center;
+            transition: background-color 0.3s;
+            margin-top: 20vh;
+            margin-bottom: 20vh;
+        }
 
         }
     </style>
@@ -145,54 +163,32 @@
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
             <div class="scrolly-graphic" id="graphic1" style="background-image: url('images/zgleda.JPG');"></div>
-            
+             <div class="scrolly-graphic" id="graphic2" style="background-image: url('images/zvjezdana-slusa.jpg');"></div>
         </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
             <!-- Step 1 Text -->
             <div class="step" data-step-for="graphic1">
                 <div class="step-content">
-                      <p class="text-white text-xl md:text-2xl md:text-2xl mb-4">„Mislim da ja previše pričam pa će mi kćerka poslije reći, mama stvarno si...“ Zvjezdana je posjetu jednom od društava za upravljanje obveznim mirovinskim fondovima (OMF-ovima) pristupila, reklo bi se - „štreberski“.</p>
-    
-      <p class="text-white text-xl md:text-2xl md:text-2xl m-4">Pozorno je slušala stručnjakinje i svako toliko zaustavljala priču „Možete li sporije da mi zapamtimo?“ One su joj ilustrativnim primjerima objašnjavale što se događa s njezinom imovinom u drugom mirovinskom stupu i koji je put čeka do mirovine.</p>
-   
-      <p class="text-white text-xl md:text-2xl md:text-2xl m-4">Većina ljudi to razdoblje života doživljava kao vrijeme kada kreće opuštanje i uživanje u plodovima minulog rada. No, rođena Daruvarčanka zna da je mirovina iza ugla i gleda na nju drugačije.</p>
-   
-      <p class="text-white text-xl md:text-2xl md:text-2xl m-4"> „Dok vidim na oči i dok mi mozak radi – radit ću“, kaže kroz smijeh.</p>
+                    <p class="text-white text-xl md:text-2xl md:text-2xl mb-4">„Mislim da ja previše pričam pa će mi kćerka poslije reći, mama stvarno si...“ Zvjezdana je posjetu jednom od društava za upravljanje obveznim mirovinskim fondovima (OMF-ovima) pristupila, reklo bi se - „štreberski“.</p>
+                    <p class="text-white text-xl md:text-2xl md:text-2xl m-4">Pozorno je slušala stručnjakinje i svako toliko zaustavljala priču „Možete li sporije da mi zapamtimo?“ One su joj ilustrativnim primjerima objašnjavale što se događa s njezinom imovinom u drugom mirovinskom stupu i koji je put čeka do mirovine.</p>
+                    <p class="text-white text-xl md:text-2xl md:text-2xl m-4">Većina ljudi to razdoblje života doživljava kao vrijeme kada kreće opuštanje i uživanje u plodovima minulog rada. No, rođena Daruvarčanka zna da je mirovina iza ugla i gleda na nju drugačije.</p>
+                    <p class="text-white text-xl md:text-2xl md:text-2xl m-4"> „Dok vidim na oči i dok mi mozak radi – radit ću“, kaže kroz smijeh.</p>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Second Scrollytelling Sequence -->
-    <div class="scrolly-container">
-        <!-- The Graphics Layer (Backgrounds) -->
-        <div class="scrolly-graphics">
-            <!-- These are the background images that will be revealed -->
-            
-            <div class="scrolly-graphic" id="graphic2" style="background-image: url('images/zvjezdana-slusa.jpg');"></div>
-            
-        </div>
-        <!-- The Steps Layer (Text) -->
-        <div class="scrolly-steps">
-
-            <!-- Step 2 Text -->
             <div class="step" data-step-for="graphic2">
                 <div class="step-content">
-                    <p class="text-white text-xl md:text-2xl mb-4">Sa suprugom Borisom vodi fotografski studio, po struci je dentalna tehničarka.</p>
-    
-      <p class="text-white text-xl md:text-2xl m-4">„Nešto malo sam radila u Rijeci. To su bili trenuci kada u Daruvaru nije bilo dovoljno posla za mene, kćer Tea je studirala, pa sam radila da ne bih sjedila i eto da zaradim nešto.“ - prisjeća se tih vremena.</p>
-   
-      <p class="text-white text-xl md:text-2xl m-4">I danas traži dodatne poslove, jer angažmana za fotografiranje malo ima - malo nema. „Kad bi barem bilo malo više toga u kontinuitetu…da ne pričam da sam konkurirala na razne natječaje pa me nisu htjeli primiti jer, kažu, imam previše godina.“ – dodaje.</p>
-  
-      <p class="text-white text-xl md:text-2xl m-4">Ali ništa je to nije smelo da gura naprijed! Sa svojih 58 godina uči njemački, nedavno je završila tečaj web dizajna i vjeruje u cjeloživotno obrazovanje.</p>
-    <p class="text-white text-xl md:text-2xl m-4">„Djeci uvijek govorim: učite i radite. Diploma nije kraj nego početak.“ A novi početak za nju, bit će dan kada ostvari uvjete za odlazak u mirovinu.</p>
+        <p class="text-white text-xl md:text-2xl mb-4">Sa suprugom Borisom vodi fotografski studio, po struci je dentalna tehničarka.</p>
+        <p class="text-white text-xl md:text-2xl m-4">„Nešto malo sam radila u Rijeci. To su bili trenuci kada u Daruvaru nije bilo dovoljno posla za mene, kćer Tea je studirala, pa sam radila da ne bih sjedila i eto da zaradim nešto.“ - prisjeća se tih vremena.</p>
+        <p class="text-white text-xl md:text-2xl m-4">I danas traži dodatne poslove, jer angažmana za fotografiranje malo ima - malo nema. „Kad bi barem bilo malo više toga u kontinuitetu…da ne pričam da sam konkurirala na razne natječaje pa me nisu htjeli primiti jer, kažu, imam previše godina.“ – dodaje.</p>
+        <p class="text-white text-xl md:text-2xl m-4">Ali ništa je to nije smelo da gura naprijed! Sa svojih 58 godina uči njemački, nedavno je završila tečaj web dizajna i vjeruje u cjeloživotno obrazovanje.</p>
+        <p class="text-white text-xl md:text-2xl m-4">„Djeci uvijek govorim: učite i radite. Diploma nije kraj nego početak.“ A novi početak za nju, bit će dan kada ostvari uvjete za odlazak u mirovinu.</p>
                 </div>
             </div>
-
-            
         </div>
     </div>
+
     
     <!-- Standard Content Section -->
     <section class="standard-section">
@@ -222,7 +218,6 @@
         <!-- The Graphics Layer (Backgrounds) -->
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
-            
             <div class="scrolly-graphic" id="graphic3" style="background-image: url('images/zvjezdanaikcer.JPG');"></div>
           </div>
         <!-- The Steps Layer (Text) -->
@@ -327,10 +322,10 @@
             const graphics = gsap.utils.toArray(".scrolly-graphic");
 
             // Make the graphics invisible by default
-            gsap.set(graphics, { autoAlpha: 0 });
+            gsap.set(graphics, { autoAlpha: 1 });
             
             // Set the first graphic to be visible
-            gsap.set(graphics[0, { autoAlpha: 1 });
+            gsap.set(graphics[0], { autoAlpha: 1 });
 
             steps.forEach((step, i) => {
                 ScrollTrigger.create({
