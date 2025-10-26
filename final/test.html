@@ -359,13 +359,29 @@
     </div>
     </section>
 
-     <!-- Section 1: Subtitle Section (Photo subtitle) -->
-    <section class="relative h-screen w-full overflow-hidden flex flex-col justify-end items-center">
+     <!-- Section 1: Podnaslov -->
+      <div class="scrolly-container">
+        <!-- The Graphics Layer (Backgrounds) -->
+        <div class="scrolly-graphics">
+            <!-- These are the background images that will be revealed -->
+            <div class="scrolly-graphic" id="graphic3" style="background-image: url('images/zvjezdana-otkriva.webp');"></div>
+          </div>
+        <!-- The Steps Layer (Text) -->
+        <div class="scrolly-steps">
+            <!-- Step 2 Text -->
+            <div class="step" data-step-for="graphic3">
+                <div class="step-content">
+       <h1 class="text-white text-5xl md:text-6xl font-bold rounded-lg p-4">DRUGI STUP IZ PRVE RUKE</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<section class="relative h-screen w-full overflow-hidden flex flex-col justify-end items-center">
         <img id="background-video" class="absolute top-0 left-0 w-full h-full object-cover" src="images/zvjezdana-otkriva.webp">
         <div class="relative z-10 text-center mb-16">
             <h1 class="text-white text-5xl md:text-6xl font-bold rounded-lg p-4 pozadina">DRUGI STUP IZ PRVE RUKE</h1>
         </div>
-    </section>
+    </section>-->
 
     <!-- Second Scrollytelling Sequence -->
     <div class="scrolly-container">
