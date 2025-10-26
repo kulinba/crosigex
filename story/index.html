@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zvjezdanina priča: Scrollytelling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Title Section with Video Background -->
+    <section class="title-section">
+        <video class="background-video" autoplay muted loop playsinline>
+            <source src="../final/images/zvjezdana720.mp4" type="video/mp4">
+        </video>
+        <div class="title-overlay">
+            <h1>EHO PROŠLIH ODLUKA</h1>
+            <h2>S iskustvom u akciju i pripreme za mirovinu</h2>
+        </div>
+    </section>
+
+    <!-- 2. First Scrollytelling Sequence -->
+    <div class="scrolly-container">
+        <!-- The Graphics Layer (Backgrounds) -->
+        <div class="scrolly-graphics">
+            <!-- MODIFIED: Only ONE graphic element for the entire section -->
+            <div class="scrolly-graphic" style="background-image: url('../final/images/zvjezdana_static.jpg');"></div>
+        </div>
+        <!-- The Text Steps Layer -->
+        <div class="scrolly-steps">
+            <div class="step">
+                <div class="step-content">
+                    <p>„Mislim da ja previše pričam pa će mi kćerka poslije reći, mama stvarno si...“ Zvjezdana je posjetu jednom od društava za upravljanje obveznim mirovinskim fondovima (OMF-ovima) pristupila, reklo bi se - „štreberski“.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-content">
+                    <p>Sa suprugom Borisom vodi fotografski studio, po struci je dentalna tehničarka. Ali ništa je to nije smelo da gura naprijed! Sa svojih 58 godina uči njemački, nedavno je završila tečaj web dizajna i vjeruje u cjeloživotno obrazovanje.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-content">
+                    <p>Ponukane radionicom Zvjezdana i Tea su po povratku u Daruvar u priču uvukle i tatu. Putem portala e-Građani, provjerili su koliko ima do mirovine i koliko bi iznosila prema informativnom izračunu.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 3. Standard Content Section -->
+    <section class="standard-section">
+        <div class="standard-content-wrapper">
+            <h2>Koje su Zvjezdanine opcije?</h2>
+            <!-- Abridged content for example -->
+            <p>U 1. stup uplaćuje 15% bruto plaće... Odabere li isplatu mirovine samo iz prvoga stupa, sredstva s osobnog računa u drugom stupu prenose se u državni proračun.</p>
+        </div>
+    </section>
+    
+    <!-- 4. You can add more .scrolly-container or .standard-section blocks here -->
+
+    <!-- Footer with Photo Cards -->
+    <footer class="footer-section">
+        <h2>PROČITAJTE DRUGE PRIČE LICA IZA KOVANICA</h2>
+        <div class="photo-card-container">
+            <a href="#" class="photo-card">
+                <img src="../final/images/mare_pocetna.gif" alt="Priča Martine">
+                <div class="text-overlay">
+                    <h3>Planiranje budućnosti</h3>
+                    <p>Pročitajte priču Martine, 33 koja je poduzetnica.</p>
+                </div>
+            </a>
+            <a href="#" class="photo-card">
+                <img src="../final/images/hrvoje_once.gif" alt="Priča Hrvoja">
+                <div class="text-overlay">
+                    <h3>Budući horizonti</h3>
+                    <p>Kako se Hrvoje priprema za Mirovinu.</p>
+                </div>
+            </a>
+        </div>
+        <div class="footer-credits">
+            <p>U sklopu financijskog opismenjavanja sadržaj omogućava PBZ CROATIA OSIGURANJE d.d.</p>
+            <p>Design and Content by: LaFe</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+:root {
+    --text-color: #ffffff;
+    --bg-color: #111827; /* gray-900 */
+    --accent-color: #f7fafc; /* gray-50 */
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* --- Title Section --- */
+.title-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+}
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+.title-overlay {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 10vh;
+}
+
+/* --- Scrollytelling Container --- */
+.scrolly-container {
+    position: relative;
+}
+
+.scrolly-graphics {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+.scrolly-graphic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.scrolly-steps {
+    position: relative;
+    z-index: 10;
+    padding-top: 1px; /* Fixes margin collapse */
+}
+
+.step {
+    position: relative;
+    min-height: 100vh; /* This provides the scrolling distance for each step */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.step-content {
+    background-color: rgba(17, 24, 39, 0.8); /* gray-900 with opacity */
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 500px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.step-content p {
+    font-size: 1.25rem;
+    line-height: 1.7;
+}
+
+/* --- Standard Content Section --- */
+.standard-section {
+    background-color: var(--accent-color);
+    color: #1a202c;
+    padding: 5rem 2rem;
+}
+.standard-content-wrapper {
+    max-width: 800px;
+    margin: auto;
+}
+
+/* --- Footer --- */
+.footer-section {
+    background-color: beige;
+    color: #2d3748;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+.photo-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+.photo-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+.photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.photo-card .text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 1.5rem;
+    color: white;
+}
+.footer-credits {
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+    .photo-card-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+    .photo-card {
+        width: 45%;
+        max-width: 400px;
+    }
+}

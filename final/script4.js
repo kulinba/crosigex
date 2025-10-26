@@ -103,4 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(setVideoSource, 250); // Debounce for performance
     });
+
 });
+

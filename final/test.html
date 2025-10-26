@@ -102,7 +102,26 @@
                 text-align: center;
             }
 
-            
+        .step.active #graphic1{
+            overflow-x: visible;
+            transform: translateX(-100px);
+        }    
+
+        /* --- ADD THESE RULES FOR CUSTOM BACKGROUND POSITIONS --- */
+        /* Use these to adjust the horizontal alignment of your background images. */
+        /* 0% is the far left, 50% is center, 100% is the far right. */
+
+        /* This pans the image for #graphic1 to show more of its left side. */
+        #graphic1 {
+             background-position: 75% center; /* Adjust 25% to fine-tune */
+        }
+
+        /* This pans the image for #graphic2 to show more of its right side. */
+        #graphic2 {
+            background-position: 25% center; /* Adjust 75% to fine-tune */
+        }
+        
+        /* You can add more rules here for #graphic3, #graphic4, etc. */
         
         /* --- Desktop Layout --- */
         @media (min-width: 768px) {
@@ -142,6 +161,8 @@
             margin-bottom: 20vh;
         }
 
+       
+
         }
     </style>
 </head>
@@ -163,8 +184,8 @@
         <!-- The Graphics Layer (Backgrounds) -->
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
-            <div class="scrolly-graphic" id="graphic1" style="background-image: url('images/zgleda.JPG');"></div>
-            <div class="scrolly-graphic" id="graphic2" style="background-image: url('images/zvjezdana-slusa.jpg');"></div>
+            <div class="scrolly-graphic" id="graphic1" style="background-image: url('images/opcije_zvjezdana.webp');"></div>
+            <div class="scrolly-graphic" id="graphic2" style="background-image: url('images/z_kcerufokusu.jpg');"></div>
         </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
@@ -227,7 +248,6 @@
             <div class="step" data-step-for="graphic3">
                 <div class="step-content">
        <p class="text-white text-xl md:text-2xl m-4">Ponukane radionicom Zvjezdana i Tea su po povratku u Daruvar u priču uvukle i tatu. Putem portala e-Građani, provjerili su koliko ima do mirovine i koliko bi iznosila prema informativnom izračunu. Sreća da su to napravili.</p>
-   
       <p class="text-white text-xl md:text-2xl m-4">„Malo smo to proučavali i vidjeli da mu nije upisan staž koji ima iz druge države. Sad to još treba rješavati pred mirovinu.“ kaže Tea.</p>
     
       <p class="text-white text-xl md:text-2xl m-4">Treba prevenirati takva iznenađenja redovnim provjerama godina staža, provjerom uplata doprinosa svojih poslodavaca i jesu li svi osobni podaci ažurirani.</p>
@@ -318,7 +338,7 @@
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
             
-            <div class="scrolly-graphic" id="graphic5" style="background-image: url('images/zvjezdana-pise.png');"></div>
+            <div class="scrolly-graphic" id="graphic5" style="background-image: url('images/zvjezdana-gleda.jpg');"></div>
           </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
@@ -367,7 +387,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ScrollTrigger.create({
                 trigger: step,
                 start: "top 80%", // You can adjust this as we discussed
-                end: "bottom center",
                 
                 // When a step is in the center, ensure its graphic is visible and others are not.
                 onEnter: () => {
@@ -385,14 +404,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 },
                 
-                toggleClass: { targets: step, className: "active" }
+               toggleClass: { targets: step, className: "active" }
             });
         });
     }
 
-    // Initialize your scrollytelling container(s)
-    setupScrollytelling('.scrolly-container'); 
-    // If you had another one, you could call it again: setupScrollytelling('#second-scrolly-container');
+     document.querySelectorAll('.scrolly-container').forEach((container, index) => {
+        // Give each container a unique ID for robust targeting
+        const uniqueId = `scrolly-container-${index}`;
+        container.id = uniqueId;
+        setupScrollytelling(`#${uniqueId}`); 
+    });
 });
     </script>
 </body>
