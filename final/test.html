@@ -63,7 +63,7 @@
         }
 
         .step-content {
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(123, 114, 114, 0.9);
             color: white;
             padding: 2rem;
             border-radius: 0.5rem;
@@ -76,7 +76,7 @@
         
         /* Highlight the active text panel */
         .step.active .step-content {
-            background-color: rgba(0, 0, 0, 0.75);
+            background-color: rgba(123, 114, 114, 0.9);
         }
 
         .step-content p {
@@ -120,6 +120,83 @@
         #graphic2 {
             background-position: 25% center; /* Adjust 75% to fine-tune */
         }
+
+        footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #2d3748;
+  color: white;
+}
+
+.zuto{
+  color: beige;
+  font-weight: 700;
+  border-left: beige 5px solid;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  margin-bottom: 1rem;
+  max-width: 800px;
+  align-items: center;
+  text-align: left;
+}
+
+/*PHOTO CARDS*/
+ /* Set initial state for photo cards for animation */
+            .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0; /* Removed rounded corners */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Retained shadow */
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 400px; /* Ensure a minimum height for the cards */
+            background-color: #e0e0e0; /* Fallback background for the card area */
+            flex-grow: 1; /* Allow cards to grow and fill available space */
+
+            /* Initial state before animation */
+            opacity: 0;
+            transform: translateY(50px);
+            }
+        .photo-card:hover {
+            transform: translateY(-8px); /* Subtle lift effect */
+            }
+        .photo-card img {
+            width: 100%;
+            height: 100%; /* Make image fill the card */
+            object-fit: cover;
+            position: absolute; /* Position image behind text */
+            top: 0;
+            left: 0;
+            z-index: 1; /* Place image below text overlay */
+            transition: transform 0.3s ease-in-out;
+        }
+        .photo-card:hover img {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+        .text-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem; /* p-6 */
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+            color: white;
+            z-index: 2; /* Place text overlay above image */
+        }
+        .text-overlay h1 {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 700; /* font-bold */
+            margin-bottom: 0.5rem;
+        }
+        .text-overlay p {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 400; /* font-normal */
+            opacity: 0.9;
+        }
         
         /* You can add more rules here for #graphic3, #graphic4, etc. */
         
@@ -142,7 +219,7 @@
                 min-height: 90vh; /* Give more scrolling room on desktop */
             }
             .pozadina{ 
-                 background-color: rgba(0, 0, 0, 0.75);
+                 background-color: rgba(123, 114, 114, 0.9);
                  max-width: 800px;
                 text-align: center;
                 padding: 2rem;
@@ -150,7 +227,7 @@
             }
 
              .step-content {
-            background-color: rgba(0, 0, 0, 0.6);
+            background-color: rgba(123, 114, 114, 0.9);
             color: white;
             padding: 2rem;
             border-radius: 0.5rem;
@@ -415,8 +492,61 @@ Od četiri društva za upravljanje OMF-ovima u Hrvatskoj, zna čiji je član. No
     </div>
     </div>
     </section>
-    <!-- You can add more .scrolly-container sections or .standard-section sections here -->
 
+    <!-- OMF-ovi -->
+    <div class="scrolly-container">
+        <!-- The Graphics Layer (Backgrounds) -->
+        <div class="scrolly-graphics">
+            <!-- These are the background images that will be revealed -->
+            
+            <div class="scrolly-graphic" id="graphic5" style="background-image: url('images/zvjezdana-gleda.jpg');"></div>
+          </div>
+        <!-- The Steps Layer (Text) -->
+        <div class="scrolly-steps">
+            <!-- Step 2 Text -->
+            <div class="step" data-step-for="graphic5">
+                <div class="step-content">
+      <p class="text-white text-xl md:text-2xl m-4">Zvjezdana ulazi sve dublje u tematiku. Ako to nije radila ranije - krajnje je vrijeme.</p>
+      <p class="text-white text-xl md:text-2xl m-4">„Moram si to malo posložiti, proučiti oko mirovina, jer sutra će doći…vrlo brzo!“
+Od četiri društva za upravljanje OMF-ovima u Hrvatskoj, zna čiji je član. No nije bila upoznata s kategorijama obveznih mirovinskih fondova.</p>
+      <p class="text-white text-xl md:text-2xl m-4">Informacije o kategoriji fonda mogu se dobiti direktno od društva u kojemu su, a dodatne adrese za informiranje su REGOS i sustav e-Građani.</p>  
+      <p class="text-white text-xl md:text-2xl m-4">Za stolom Zvjezdani pomaže kćer Tea i kreće istraga! „Mama, tu ti piše u kojem si fondu i u kojoj si kategoriji“. Saznaje da je u kategoriji B. Zvjezdana priznaje: „Nisam znala da postoje tri kategorije A, B i C. Sve to tek sad učim.“</p>
+      <p class="text-white text-xl md:text-2xl m-4">Kategorije se razlikuju po investicijskoj strategiji, rizicima i uvjetima članstva ovisno o vremenu do referentnog dana, odnosno dana kada se stječe pravo odlaska u starosnu mirovinu.</p>
+     <p class="text-white text-xl md:text-2xl m-4">Kao osoba koja se bavi fotografijom i koja je vizualan tip, Zvjezdana voli ilustrirati stvari. Tako su se na papiru iscrtavale kategorije i povezivalo kakve one imaju veze s ulaganjima.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- You can add more .scrolly-container sections or .standard-section sections here -->
+<!--DRUGE PRIČE POČETAK FOOTERA-->
+
+<section style="background-color: beige; color: #2d3748;"><div><h2 class="text-2xl font-bold rounded-lg p-4">PROČITAJTE DRUGE PRIČE LICA IZA KOVANICA</h2></div>
+  <div class="column-wrapper flex flex-col md:flex-row justify-stretch items-stretch md:items-stretch w-full">
+            <!-- Column 1 -->
+            <a href="../example1/index.html" class="photo-card w-full md:w-2/3" id="card1">
+                <img src="../images/mare_pocetna.gif" alt="Portrait of a person" class="w-full h-full object-cover">
+                <div class="text-overlay">
+                    <h1 class="text-3xl font-bold">Planiranje budućnosti</h1>
+                    <p class="text-lg font-normal">Pročitajte priču Martine, 33 koja je poduzetnica i saznajte što misli o mirovini</p>
+                </div>
+            </a>
+
+            <!-- Column 2 -->
+            <a href="../story2.html" class="photo-card w-full md:w-2/3" id="card2">
+                <img src="../images/hrvoje_once.gif" alt="Portrait of another person" class="w-full h-full object-cover">
+                <div class="text-overlay">
+                    <h1 class="text-3xl font-bold">Budući horizonti</h1>
+                    <p class="text-lg font-normal">Kako se Hrvoje priprema za Mirovinu</p>
+                </div>
+            </a>
+
+            
+
+        </div></section>
+<footer>
+  
+  <p class="zuto">U sklopu financijskog opismenjavanja sadržaj omogućava PBZ CROATIA OSIGURANJE d.d. za upravljanje obveznim mirovinskim fondovima</p>
+<p>Design and Content by: LaFe</p></footer>
     <script>
       gsap.registerPlugin(ScrollTrigger);
 
@@ -477,6 +607,48 @@ document.addEventListener('DOMContentLoaded', () => {
         setupScrollytelling(`#${uniqueId}`); 
     });
 });
+
+// Register ScrollTrigger plugin
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // GSAP animation for the main title
+            gsap.from("h1", {
+                opacity: 0,
+                y: -50,
+                duration: 1,
+                ease: "power3.out",
+                delay: 0.5
+            });
+
+        // GSAP animation for each photo card - ADDED HERE
+            gsap.utils.toArray(".photo-card").forEach((card, i) => {
+                gsap.to(card, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    delay: 0.2 + (i * 0.2), // Stagger the animation
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%", // Start animation when card is 85% from the top
+                        toggleActions: "play none none none", // Play animation once
+                    }
+                });
+            });
+
+            // Optional: Add a subtle parallax effect to the background on scroll
+            gsap.to("body", {
+                backgroundPosition: "50% 100%",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "body",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+        });// THIS CLOSING CURLY BRACE SHOULD BE REMOVED
     </script>
 </body>
 </html>
