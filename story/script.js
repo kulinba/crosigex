@@ -1,24 +1,15 @@
---- a/original.js
-+++ b/suggestion.js
-@@ -1,37 +1,46 @@
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener('DOMContentLoaded', () => {
--
--    // --- Scrollytelling Parallax Animation ---
-+    // --- Scrollytelling Animation ---
-    const scrollyContainers = document.querySelectorAll(".scrolly-container");
 
+    // --- Scrollytelling Parallax Animation (remains the same) ---
+    const scrollyContainers = document.querySelectorAll(".scrolly-container");
+    // ... existing scrollytelling code ...
     scrollyContainers.forEach(container => {
         const graphic = container.querySelector(".scrolly-graphic");
         const steps = container.querySelectorAll(".step");
 
--        // Animate the single graphic as the container scrolls
-+        // --- 1. PARALLAX ANIMATION FOR THE BACKGROUND ---
-+        // This part animates the single graphic as the entire container is scrolled through.
         gsap.to(graphic, {
--            // This creates a subtle zoom and vertical pan effect.
--            // Adjust these values to change the animation.
             scale: 1.1,
             yPercent: -10,
             ease: "none",
@@ -26,46 +17,67 @@ document.addEventListener('DOMContentLoaded', () => {
                 trigger: container,
                 start: "top top",
                 end: "bottom bottom",
--                scrub: true // This links the animation directly to the scrollbar
-+                scrub: true // Links the animation directly to the scrollbar
+                scrub: true
             }
         });
 
--        // Animate each text step to fade in as it enters the view
-+        // --- 2. FADE-IN/FADE-OUT ANIMATION FOR THE TEXT ---
-+        // This part handles each text block individually.
         steps.forEach(step => {
--            gsap.from(step.querySelector(".step-content"), {
--                autoAlpha: 0,
--                y: 50,
--                duration: 0.5,
--                ease: "power1.out",
--            scrollTrigger: {
--                    trigger: step,
--                    start: "top 70%", // Start animation when the step is 70% down the viewport
--                    toggleActions: "play none none reverse" // Fade in on enter, fade out on leave
--            }
-+            const stepContent = step.querySelector(".step-content");
-+
-+            // Set the initial state of the text to be invisible and slightly down
-+            gsap.set(stepContent, { autoAlpha: 0, y: 30 });
-+
-+            // Create a trigger for each text block
-+            ScrollTrigger.create({
-+                trigger: step,
-+                start: "top 65%",   // When the top of the step is 65% down the viewport
-+                end: "bottom 35%", // When the bottom of the step is 35% up the viewport
-+
-+                // Animate IN when the text block enters the trigger area
-+                onEnter: () => gsap.to(stepContent, { autoAlpha: 1, y: 0, duration: 0.5 }),
-+                onEnterBack: () => gsap.to(stepContent, { autoAlpha: 1, y: 0, duration: 0.5 }),
-+
-+                // Animate OUT when the text block leaves the trigger area
-+                onLeave: () => gsap.to(stepContent, { autoAlpha: 0, y: -30, duration: 0.5 }),
-+                onLeaveBack: () => gsap.to(stepContent, { autoAlpha: 0, y: 30, duration: 0.5 })
-+            });
+            const stepContent = step.querySelector(".step-content");
+            gsap.set(stepContent, { autoAlpha: 0, y: 30 });
+            ScrollTrigger.create({
+                trigger: step,
+                start: "top 65%",
+                end: "bottom 35%",
+                onEnter: () => gsap.to(stepContent, { autoAlpha: 1, y: 0, duration: 0.5 }),
+                onEnterBack: () => gsap.to(stepContent, { autoAlpha: 1, y: 0, duration: 0.5 }),
+                onLeave: () => gsap.to(stepContent, { autoAlpha: 0, y: -30, duration: 0.5 }),
+                onLeaveBack: () => gsap.to(stepContent, { autoAlpha: 0, y: 30, duration: 0.5 })
+            });
+        });
     });
+    
+    // --- NEW FOOTER SLIDE-OVER ANIMATION ---
+    const finalWrapper = document.querySelector('.final-sequence-wrapper');
+    const footer = finalWrapper.querySelector('.footer-section');
+    const footerTitle = footer.querySelector('.footer-title');
+    const photoCards = gsap.utils.toArray(".photo-card");
+    const footerCredits = footer.querySelector('.footer-credits');
+
+    // Set the initial state of the elements to be animated
+    gsap.set([footer-Section,footerTitle, photoCards, footerCredits], { autoAlpha: 0, y: 50 });
+
+    // Create a timeline that is controlled by scrolling through the wrapper
+    const footerTl = gsap.timeline({
+        scrollTrigger: {
+            trigger: finalWrapper,
+            start: "bottom bottom", // Starts when the wrapper hits the top of the viewport
+            end: "bottom bottom", // Ends when the wrapper leaves the viewport
+            scrub: 1          // Smoothly link animation to scrollbar
+        }
+    });
+
+    // The "slide over" effect is handled by CSS (position: sticky).
+    // This timeline ONLY animates the contents of the footer as it appears.
+
+    // 1. Animate the title fading and sliding up.
+    footerTl.to(footerTitle, { 
+        autoAlpha: 1, 
+        y: 0,
+        ease: "power2.out" 
+    });
+
+    // 2. Animate the photo cards, starting shortly after the title.
+    footerTl.to(photoCards, {
+        autoAlpha: 1,
+        y: 0,
+        stagger: 0.2, // Creates the "one by one" effect
+        ease: "power2.out"
+    }, "-=0.3"); // Overlap with the previous animation
+
+    // 3. Animate the credits at the end.
+    footerTl.to(footerCredits, { 
+        autoAlpha: 1, 
+        y: 0, 
+        ease: "power2.out" 
+    }, "-=0.3"); // Overlap with the previous animation
 });
- });
-
-

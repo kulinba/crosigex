@@ -97,9 +97,21 @@ body {
     max-width: 800px;
     margin: auto;
 }
+.final-sequence-wrapper {
+    position: relative;
+    /* This height gives space for the footer to slide up over the last section */
+    height: 200vh; 
+}
 
 /* --- Footer --- */
 .footer-section {
+    position: sticky; /* THIS IS THE KEY */
+    bottom: 0;       /* It sticks to the bottom of its container */
+    left: 0;
+    width: 100%;
+    height: 50vh;   /* Take up the full screen height when it appears */
+    z-index: 20;     /* Ensures it slides OVER the content above it */
+    overflow: hidden;
     background-color: beige;
     color: #2d3748;
     padding: 4rem 2rem;
