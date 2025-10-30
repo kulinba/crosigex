@@ -136,6 +136,7 @@ footer {
   border-left: gray 5px solid;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 2rem;
   padding-left: 15px;
   margin-bottom: 1rem;
   max-width: 800px;
@@ -224,7 +225,7 @@ footer {
         
         /* You can add more rules here for #graphic3, #graphic4, etc. */
         .nika {
-            width:35%;
+            width:60%;
         }
 
         /* --- Desktop Layout --- */
@@ -266,9 +267,22 @@ footer {
         }
 
        .nika {
-            width:15%;
+            width:10%;
         }
 
+        }
+        
+        /* --- Footer Animation --- */
+        #footer-heading, #footer-image-container {
+            opacity: 0;
+        }
+        
+        #footer-image-container {
+            transform: perspective(800px) rotateY(-90deg);
+        }
+        
+        #footer-heading {
+            transform: translateY(40px);
         }
     </style>
 </head>
@@ -631,12 +645,12 @@ Od četiri društva za upravljanje OMF-ovima u Hrvatskoj, zna čiji je član. No
 <!--DRUGE PRIČE POČETAK FOOTERA-->
 <footer>
 <div class="column-wrapper flex flex-col md:flex-row items-center">
-    <div class="md:w-1/3 p-4 flex justify-center nika">
+    <div id="footer-image-container" class="md:w-1/3 p-4 flex justify-center nika">
         <img src="../images/nikasrebro.png" alt="Nika Srebro" class="w-full max-w-xs">
     </div>
 
     <div class="md:w-3/3 p-4">
-        <h2 class="text-4xl font-bold rounded-lg p-4 text-gray-800 golub">PROČITAJTE DRUGE PRIČE LICA IZA KOVANICA</h2>
+        <h2 id="footer-heading" class="text-4xl font-bold rounded-lg p-4 text-gray-800 golub">PROČITAJTE DRUGE PRIČE LICA IZA KOVANICA</h2>
     </div>
 </div>
   <div class="column-wrapper flex flex-col md:flex-row justify-stretch items-stretch md:items-stretch w-full">
@@ -661,76 +675,71 @@ Od četiri društva za upravljanje OMF-ovima u Hrvatskoj, zna čiji je član. No
             
 
     </div>
-    <div class="column-wrapper flex-col w-full">
+    <div class="column-wrapper flex-col w-full mb-4">
   <p class="zuto">U sklopu financijskog opismenjavanja sadržaj omogućava PBZ CROATIA OSIGURANJE d.d. za upravljanje obveznim mirovinskim fondovima</p>
 <p>Design and Content by: LaFe</p>
 </div>
 </footer>
     <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-document.addEventListener('DOMContentLoaded', () => {
-    // This function can be called for multiple scrollytelling sections if needed
-    function setupScrollytelling(containerSelector) {
-        const container = document.querySelector(containerSelector);
-        if (!container) return;
-
-        const steps = container.querySelectorAll(".step");
-        const graphics = container.querySelectorAll(".scrolly-graphic");
-
-        // --- 1. SET THE INITIAL STATE ---
-        
-        // First, hide ALL graphics in this section
-        gsap.set(graphics, { autoAlpha: 0 });
-        
-        // Then, instantly reveal only the FIRST graphic.
-        // This is what makes it appear before any scrolling.
-        if (graphics.length > 0) {
-            gsap.set(graphics[0], { autoAlpha: 1 });
-        }
-
-        // --- 2. CREATE TRIGGERS FOR EACH STEP ---
-        
-        // We still create a trigger for every step, including the first one.
-        // The trigger for a step is responsible for making sure its corresponding graphic is visible.
-        steps.forEach((step, i) => {
-            ScrollTrigger.create({
-                trigger: step,
-                start: "top 80%", // You can adjust this as we discussed
-                
-                // When a step is in the center, ensure its graphic is visible and others are not.
-                onEnter: () => {
-                    // Animate all graphics: fade the target one IN, and all others OUT.
-                    gsap.to(graphics, { 
-                        autoAlpha: (j) => (j === i ? 1 : 0), // Ternary operator: if index matches, opacity is 1, else 0
-                        duration: 0.5 
-                    });
-                },
-                // Do the same when scrolling back up
-                onEnterBack: () => {
-                    gsap.to(graphics, { 
-                        autoAlpha: (j) => (j === i ? 1 : 0),
-                        duration: 0.5
-                    });
-                },
-                
-               toggleClass: { targets: step, className: "active" }
-            });
-        });
-    }
-
-     document.querySelectorAll('.scrolly-container').forEach((container, index) => {
-        // Give each container a unique ID for robust targeting
-        const uniqueId = `scrolly-container-${index}`;
-        container.id = uniqueId;
-        setupScrollytelling(`#${uniqueId}`); 
-    });
-});
-
-// Register ScrollTrigger plugin
         gsap.registerPlugin(ScrollTrigger);
 
         document.addEventListener('DOMContentLoaded', () => {
+            // This function can be called for multiple scrollytelling sections if needed
+            function setupScrollytelling(containerSelector) {
+                const container = document.querySelector(containerSelector);
+                if (!container) return;
+
+                const steps = container.querySelectorAll(".step");
+                const graphics = container.querySelectorAll(".scrolly-graphic");
+
+                // --- 1. SET THE INITIAL STATE ---
+                
+                // First, hide ALL graphics in this section
+                gsap.set(graphics, { autoAlpha: 0 });
+                
+                // Then, instantly reveal only the FIRST graphic.
+                // This is what makes it appear before any scrolling.
+                if (graphics.length > 0) {
+                    gsap.set(graphics[0], { autoAlpha: 1 });
+                }
+
+                // --- 2. CREATE TRIGGERS FOR EACH STEP ---
+                
+                // We still create a trigger for every step, including the first one.
+                // The trigger for a step is responsible for making sure its corresponding graphic is visible.
+                steps.forEach((step, i) => {
+                    ScrollTrigger.create({
+                        trigger: step,
+                        start: "top 80%", // You can adjust this as we discussed
+                        
+                        // When a step is in the center, ensure its graphic is visible and others are not.
+                        onEnter: () => {
+                            // Animate all graphics: fade the target one IN, and all others OUT.
+                            gsap.to(graphics, { 
+                                autoAlpha: (j) => (j === i ? 1 : 0), // Ternary operator: if index matches, opacity is 1, else 0
+                                duration: 0.5 
+                            });
+                        },
+                        // Do the same when scrolling back up
+                        onEnterBack: () => {
+                            gsap.to(graphics, { 
+                                autoAlpha: (j) => (j === i ? 1 : 0),
+                                duration: 0.5
+                            });
+                        },
+                        
+                       toggleClass: { targets: step, className: "active" }
+                    });
+                });
+            }
+
+             document.querySelectorAll('.scrolly-container').forEach((container, index) => {
+                // Give each container a unique ID for robust targeting
+                const uniqueId = `scrolly-container-${index}`;
+                container.id = uniqueId;
+                setupScrollytelling(`#${uniqueId}`); 
+            });
+
             // GSAP animation for the main title
             gsap.from("h1", {
                 opacity: 0,
@@ -740,7 +749,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 delay: 0.5
             });
 
-        // GSAP animation for each photo card - ADDED HERE
+            // GSAP animation for each photo card - ADDED HERE
             gsap.utils.toArray(".photo-card").forEach((card, i) => {
                 gsap.to(card, {
                     opacity: 1,
@@ -767,7 +776,52 @@ document.addEventListener('DOMContentLoaded', () => {
                     scrub: true
                 }
             });
-        });// THIS CLOSING CURLY BRACE SHOULD BE REMOVED
+
+            // GSAP animation for footer elements
+            const footerImage = document.querySelector("#footer-image-container");
+            const footerHeading = document.querySelector("#footer-heading");
+            
+            gsap.set(footerImage, { opacity: 0, rotationY: -90 });
+            gsap.set(footerHeading, { opacity: 0, y: 40 });
+
+            ScrollTrigger.create({
+                trigger: "footer",
+                start: "top 85%",
+                end: "bottom 20%",
+                toggleActions: "play reverse play reverse",
+                onEnter: () => {
+                    gsap.to(footerImage, {
+                        opacity: 1,
+                        rotationY: 0,
+                        duration: 1.5,
+                        ease: "power3.out"
+                    });
+                    
+                    gsap.to(footerHeading, {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        ease: "power3.out",
+                        delay: 0.5 // Stagger the heading animation
+                    });
+                },
+                onLeaveBack: () => {
+                    gsap.to(footerImage, {
+                        opacity: 0,
+                        rotationY: -90,
+                        duration: 1.5,
+                        ease: "power3.out"
+                    });
+                    
+                    gsap.to(footerHeading, {
+                        opacity: 0,
+                        y: 40,
+                        duration: 1,
+                        ease: "power3.out"
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
