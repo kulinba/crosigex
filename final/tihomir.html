@@ -115,12 +115,20 @@
 
         /* This pans the image for #graphic1 to show more of its left side. */
         #graphic1 {
-             background-position: 75% center; /* Adjust 25% to fine-tune */
+             background-position: 45% center; /* Adjust 25% to fine-tune */
         }
 
         /* This pans the image for #graphic2 to show more of its right side. */
         #graphic2 {
-            background-position: 25% center; /* Adjust 75% to fine-tune */
+            background-position: 70% center; /* Adjust 75% to fine-tune */
+        }
+
+         #graphic31 {
+            background-position: 30% center; /* Adjust 75% to fine-tune */
+        }
+
+         #graphic6a {
+            background-position: 70% center; /* Adjust 75% to fine-tune */
         }
 
         #graphic7{
@@ -131,8 +139,16 @@
             background-position: 72% center; /* Adjust 75% to fine-tune */
         }
 
+         #graphic5a {
+            background-position: 12% center; /* Adjust 75% to fine-tune */
+        }
+
         #graphic8 {
             background-position: 34% center; /* Adjust 75% to fine-tune */
+        }
+
+        #graphic8a {
+            background-position: 55% center; /* Adjust 75% to fine-tune */
         }
 
 footer {
@@ -143,9 +159,9 @@ footer {
 }
 
 .zuto{
-  color: #8a5ee6;
+  color: gray;
   font-weight: 700;
-  border-left: #8a5ee6 5px solid;
+  border-left: gray 5px solid;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2rem;
@@ -240,6 +256,14 @@ footer {
             width:60%;
         }
 
+        .crveno{
+            color: #e01e26 ;
+        }
+
+        .plavo{
+            color:#143a69 ;
+        }
+
         /* --- Desktop Layout --- */
         @media (min-width: 768px) {
             .scrolly-container {
@@ -256,7 +280,7 @@ footer {
             }
 
             .step {
-                min-height: 90vh; /* Give more scrolling room on desktop */
+                min-height: 300vh; /* Give more scrolling room on desktop */
             }
             .pozadina{ 
                  background-color: rgba(123, 114, 114, 0.9);
@@ -303,11 +327,11 @@ footer {
     <!-- Section 1: Title Section (Video) -->
     <section class="relative h-screen w-full overflow-hidden flex flex-col justify-end items-center">
         <video id="background-video" class="absolute top-0 left-0 w-full h-full object-cover" autoplay muted playsinline>
-            <source src="../images/tomislav.mp4" type="video/mp4">
+            <source src="../images/Tomislav.mp4" type="video/mp4">
         </video>
         <div class="relative z-10 text-center mb-16">
-            <h1 class="text-white text-5xl md:text-6xl font-bold rounded-lg p-4">BUDUĆI HORIZONTI</h1>
-            <h2 class="text-white text-3xl font-bold rounded-lg p-4">S iskustvom u akciju i pripreme za mirovinu</h2>
+            <h1 class="text-white text-5xl md:text-6xl font-bold rounded-lg p-4">PLANIRANJE BUDUĆNOSTI</h1>
+            <h2 class="text-white text-3xl font-bold rounded-lg p-4">Posrednim ulaganjima do mirovine</h2>
         </div>
     </section>
 
@@ -316,28 +340,26 @@ footer {
         <!-- The Graphics Layer (Backgrounds) -->
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
-            <div class="scrolly-graphic" id="graphic1" style="background-image: url('images/opcije_zvjezdana.webp');"></div>
-            <div class="scrolly-graphic" id="graphic2" style="background-image: url('images/z_kcerufokusu.jpg');"></div>
+            <div class="scrolly-graphic" id="graphic1" style="background-image: url('images/06Tihomir_sjedi.JPG');"></div>
+            <div class="scrolly-graphic" id="graphic2" style="background-image: url('images/07Tihomir_sam.JPG');"></div>
         </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
             <!-- Step 1 Text -->
             <div class="step" data-step-for="graphic1">
                 <div class="step-content">
-                    <p class="text-white text-xl md:text-2xl md:text-2xl mb-4">„Mislim da ja previše pričam pa će mi kćerka poslije reći, mama stvarno si...“ Zvjezdana je posjetu jednom od društava za upravljanje obveznim mirovinskim fondovima (OMF-ovima) pristupila, reklo bi se - „štreberski“.</p>
-                    <p class="text-white text-xl md:text-2xl md:text-2xl m-4">Pozorno je slušala stručnjakinje i svako toliko zaustavljala priču „Možete li sporije da mi zapamtimo?“ One su joj ilustrativnim primjerima objašnjavale što se događa s njezinom imovinom u drugom mirovinskom stupu i koji je put čeka do mirovine.</p>
-                    <p class="text-white text-xl md:text-2xl md:text-2xl m-4">Većina ljudi to razdoblje života doživljava kao vrijeme kada kreće opuštanje i uživanje u plodovima minulog rada. No, rođena Daruvarčanka zna da je mirovina iza ugla i gleda na nju drugačije.</p>
-                    <p class="text-white text-xl md:text-2xl md:text-2xl m-4"> „Dok vidim na oči i dok mi mozak radi – radit ću“, kaže kroz smijeh.</p>
+                    <p class="text-white text-xl md:text-2xl md:text-2xl mb-4">Tihomir iz Svetog Ivana Zeline radi kao serviser, zaljubljen je u ribičiju, na jedan dan alate i štap za pecanje zamijenio je lekcijama o drugom stupu obveznog mirovinskog osiguranja.</p>
+                    <p class="text-white text-xl md:text-2xl md:text-2xl m-4">„Ljudi izgleda više brigu vode o tome koju će pretplatu odabrati kada im tele-operater nudi, nego da biraju stvari vezane uz svoju mirovinu!“ – kaže u šali.</p>
+                    <p class="text-white text-xl md:text-2xl md:text-2xl m-4">No, obvezni mirovinski fondovi (OMF-ovi) strogo su regulirani, nema nuđenja, nema sugestija – isključivo samostalni izbor članova dolazi u obzir!</p>
                 </div>
             </div>
 
             <div class="step" data-step-for="graphic2">
                 <div class="step-content">
-        <p class="text-white text-xl md:text-2xl mb-4">Sa suprugom Borisom vodi fotografski studio, po struci je dentalna tehničarka.</p>
-        <p class="text-white text-xl md:text-2xl m-4">„Nešto malo sam radila u Rijeci. To su bili trenuci kada u Daruvaru nije bilo dovoljno posla za mene, kćer Tea je studirala, pa sam radila da ne bih sjedila i eto da zaradim nešto.“ - prisjeća se tih vremena.</p>
-        <p class="text-white text-xl md:text-2xl m-4">I danas traži dodatne poslove, jer angažmana za fotografiranje malo ima - malo nema. „Kad bi barem bilo malo više toga u kontinuitetu…da ne pričam da sam konkurirala na razne natječaje pa me nisu htjeli primiti jer, kažu, imam previše godina.“ – dodaje.</p>
-        <p class="text-white text-xl md:text-2xl m-4">Ali ništa je to nije smelo da gura naprijed! Sa svojih 58 godina uči njemački, nedavno je završila tečaj web dizajna i vjeruje u cjeloživotno obrazovanje.</p>
-        <p class="text-white text-xl md:text-2xl m-4">„Djeci uvijek govorim: učite i radite. Diploma nije kraj nego početak.“ A novi početak za nju, bit će dan kada ostvari uvjete za odlazak u mirovinu.</p>
+        <p class="text-white text-xl md:text-2xl mb-4">Sve to Tihomir saznaje odmah po obilasku prostorija jednoga društva koje upravlja OMF-ovima. Prava na vlastiti izbor treba koristiti.</p>
+        <p class="text-white text-xl md:text-2xl m-4"> „Već sada? A da, dođe vrijeme, zadnjih deset godina, i onda je frka panika…idem vidjeti šta je bolje, kako da bude bolja penzija ili ne znam kaj…klasična priča!“ - kaže Tihomir.</p>
+        <p class="text-white text-xl md:text-2xl m-4">Ima mnogo opcija za informiranje o radu i ulaganjima fondova, puno načina kako doznati sve što bi Tihomira i druge članove OMF-ova trebalo zanimati.</p>
+        <p class="text-white text-xl md:text-2xl m-4">A prije svega - stanje osobnog računa na kojemu je njihova imovina, tzv. individualna kapitalizirana štednja.</p>
                 </div>
             </div>
         </div>
@@ -347,24 +369,17 @@ footer {
     <!-- Standard Content Section -->
     <section class="standard-section">
         <div class="standard-section-content">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Koje su Zvjezdanine opcije?</h2>
-      <h3  class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">Isplata mirovine iz 1. stupa obveznog mirovinskog osiguranja</h3>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Tvoje pravo da znaš-Kako mogu saznati stanje svog računa?</h2>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-          U 1. stup uplaćuje 15% bruto plaće kako bi se isplaćivale mirovine sadašnjim umirovljenicima, a za nekoliko godina i njoj. Uplaćuje i 5% bruto plaće u obvezni drugi mirovinski stup.</p>
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3"> Osobni račun u svom OMF-u može se redovno pratiti direktnim pozivom na besplatni info telefon, prijavom na mrežnu stranicu svog društva ili aplikacijom.</p>
        </div>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">Odabere li isplatu mirovine samo iz prvoga stupa, sredstva s osobnog računa u drugom stupu prenose se u državni proračun. Mirovinu će tako u cijelosti isplaćivati HZMO.</p>
-      </div>
-      <h3  class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">Isplata kombinirane mirovine iz 1. i 2. stupa obveznog mirovinskog osiguranja</h3>
-      <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-       Osnovnu mirovinu iz prvog stupa isplaćivat će HZMO. Sredstva s osobnog računa u drugom stupu prenose se u izabrano mirovinsko osiguravajuće društvo, koje onda isplaćuje dio mirovine.</p>
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">Sredstva na osobnom računu ne mogu biti predmet ovrhe, mogu biti nasljediva i ne mogu se podignuti - služe isključivo za isplatu mirovine.</p>
       </div>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-      Kod kombinirane opcije, postoji mogućnost korištenja djelomične jednokratne novčane isplate do najviše 20% ušteđenih sredstava na osobnom računu u drugom stupu, ukoliko je osnovna mirovina viša od iznosa najniže mirovine iz prvog stupa.</p>
-        </div>
+       Savjetuje se promjene osobnih podataka ažurirati i redovno provjeravati plaća li poslodavac sve doprinose na vrijeme.</p>
+      </div>
     </section>
     
     <!-- Second Scrollytelling Sequence -->
@@ -372,59 +387,31 @@ footer {
         <!-- The Graphics Layer (Backgrounds) -->
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
-            <div class="scrolly-graphic" id="graphic3" style="background-image: url('images/zvjezdanaikcer.JPG');"></div>
+            <div class="scrolly-graphic" id="graphic3" style="background-image: url('images/04Tihomir_skupauekran.JPG');"></div>
           </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
             <!-- Step 2 Text -->
             <div class="step" data-step-for="graphic3">
                 <div class="step-content">
-       <p class="text-white text-xl md:text-2xl m-4">Ponukane radionicom Zvjezdana i Tea su po povratku u Daruvar u priču uvukle i tatu. Putem portala e-Građani, provjerili su koliko ima do mirovine i koliko bi iznosila prema informativnom izračunu. Sreća da su to napravili.</p>
-      <p class="text-white text-xl md:text-2xl m-4">„Malo smo to proučavali i vidjeli da mu nije upisan staž koji ima iz druge države. Sad to još treba rješavati pred mirovinu.“ kaže Tea.</p>
-    
-      <p class="text-white text-xl md:text-2xl m-4">Treba prevenirati takva iznenađenja redovnim provjerama godina staža, provjerom uplata doprinosa svojih poslodavaca i jesu li svi osobni podaci ažurirani.</p>
-      
-     <p class="text-white text-xl md:text-2xl m-4">Takav vid kontrole itekako se preporuča, ma koliko godina bilo do mirovine. No pred sam početak mirovine, kreće akcija - treba znati što i kojim redom činiti.</p>
-    
+      <p class="text-white text-xl md:text-2xl m-4">Račun se vodi u obračunskim jedinicama, a zbroj vrijednosti svih obračunskih jedinica na računima svih članova obveznog mirovinskog fonda predstavlja ukupnu vrijednost fonda.</p>
+      <p class="text-white text-xl md:text-2xl m-4">Redovna izvješća stižu mailom, SMS-om ili poštom – kako se već odabere.</p>    
+      <p class="text-white text-xl md:text-2xl m-4">„Ma dajte meni poštom….od silnih poruka na telefonu i mailova, mogao bih previdjeti nešto.“ – kaže Tihomir.</p>   
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Standard Content Section -->
-    <section class="standard-section">
-        <div class="standard-section-content">
-       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Od zahtjeva do prve isplate mirovine</h2>
-    <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-        Najranije mjesec dana prije prestanka mirovinskog osiguranja Zvjezdana može HZMO-u predati zahtjev za ostvarivanje prava na starosnu ili prijevremenu starosnu mirovinu.</p>
-      </div>
-      <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-       Kada utvrde da je sve ispravno, dobit će privremeno rješenje o priznavanju prava na mirovinu i isplati predujma do konačnog rješenja.</p>
-      </div>
-      <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-      Središnji registar osiguranika (REGOS) zatim kreće prikupljati informativne izračune Zvjezdanine mirovine od HZMO-a i mirovinskih osiguravajućih društava.</p>
-      </div>
-      <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-       Na kućnu adresu zaprimit će informativni izračun mirovine – samo iz prvog stupa i kombinirane iz prvog i drugog. Na osnovu toga donijet će svoju konačnu odluku i predati izjavu REGOS-u.</p>
-      </div>
-    </div>
-    </section>
-
      <!-- Section 1: Podnaslov -->
       <div class="scrolly-container">
         <!-- The Graphics Layer (Backgrounds) -->
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
-            <div class="scrolly-graphic" id="graphic3" style="background-image: url('images/zvjezdana-otkriva.webp');"></div>
+            <div class="scrolly-graphic" id="graphic31" style="background-image: url('images/02Tihomir_gleda.JPG');"></div>
           </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
             <!-- Step 2 Text -->
-            <div class="step" data-step-for="graphic3">
+            <div class="step" data-step-for="graphic31">
                 <div class="step-content">
        <h1 class="text-white text-5xl md:text-6xl font-bold rounded-lg p-4">DRUGI STUP IZ PRVE RUKE</h1>
                 </div>
@@ -437,45 +424,34 @@ footer {
             <h1 class="text-white text-5xl md:text-6xl font-bold rounded-lg p-4 pozadina">DRUGI STUP IZ PRVE RUKE</h1>
         </div>
     </section>-->
-
-    <!-- Second Scrollytelling Sequence -->
+ <!-- Zadatak OMF-ova -->
     <div class="scrolly-container">
         <!-- The Graphics Layer (Backgrounds) -->
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
-            
-            <div class="scrolly-graphic" id="graphic4" style="background-image: url('images/zvjezdana-gledagore.JPG');"></div>
+            <div class="scrolly-graphic" id="graphic6a" style="background-image: url('images/04Tihomir_uekran.JPG');"></div>
           </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
             <!-- Step 2 Text -->
-            <div class="step" data-step-for="graphic4">
+            <div class="step" data-step-for="graphic6a">
                 <div class="step-content">
-       <p class="text-white text-xl md:text-2xl m-4">U drugom stupu obveznog mirovinskog osiguranja Zvjezdanin je novac, njezina je to imovina na osobnom računu, štednja za „stare dane“, odnosno njezina individualna kapitalizirana štednja.</p>
-      <p class="text-white text-xl md:text-2xl m-4">Individualna - jer je riječ o Zvjezdaninoj osobnoj imovini odnosno uplaćenim mirovinskim doprinosima koji se tijekom radnog vijeka prikupljaju na njezinom osobnom računu.</p>
-      <p class="text-white text-xl md:text-2xl m-4">Kapitalizirana – zato što taj novac ne „sjedi“ samo na osobnom računu već se ulaganjima tih sredstava nastoji ostvariti prinos, odnosno zarada. A ostvareni prinos utječe na vrijednost štednje u fondu.</p>
-      <p class="text-white text-xl md:text-2xl m-4">Ako nije do sada, krajnje je vrijeme da se raspita o stanju svog računa. Sredstva iz drugog stupa namijenjena su isključivo za isplatu mirovine, čija će visina ponajprije ovisiti o iznosu uplaćenih i kapitaliziranih sredstava, ali i o vrsti i obliku odabrane mirovine.</p>
-      <p class="text-white text-xl md:text-2xl m-4">„Htjela bih vidjeti što možemo i sva ta naša prava...“, Zvjezdana ovime pogađa u metu!</p>
-                    </div>
+       <p class="text-white text-xl md:text-2xl m-4">Obvezni mirovinski fondovi ulažu u obveznice, dionice i druge financijske instrumente s ciljem ostvarivanja pozitivnog prinosa i povećanja vrijednosti štednje svojih članova.</p>
+       <p class="text-white text-xl md:text-2xl m-4">Iako sami ne biraju ulaganja, članovi posredno sudjeluju na tržištima kapitala putem fonda u brojnim uzbudljivim pričama. Između ostalih, i u aktualnim temama poput razvoja umjetne inteligencije, digitalizacije i novih tehnologija.</p>
+       <p class="text-white text-xl md:text-2xl m-4">Ne osobno, već dajući povjerenje OMF-ovima da prepoznaju dobre prilike.</p>
+       <p class="text-white text-xl md:text-2xl m-4">Kako mirovinska društva prate ulaganja i kompanije u koje ulažu, tako i članovi trebaju pratiti rad društava. </p>
+                </div>
             </div>
         </div>
     </div>
-<!-- Tvoje pravo na propitkivanje-->
+<!-- Tvoje pravo na transparentnost-->
     <section class="standard-section">
         <div class="standard-section-content">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Tvoje pravo na propitkivanje – Što je s mojim osobnim računom?</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Tvoje pravo na transparentnost – gdje fondovi objavljuju svoja ulaganja?</h2>
     <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-      Stanje računa može se provjeriti besplatnim pozivom na info telefon ili na mrežnim stranicama društva uz identifikaciju PIN-om ili korisničkim brojem, također i putem aplikacije.</p>
+      Struktura ulaganja fondova objavljuje se jednom mjesečno na mrežnim stranicama svih društava za upravljanje OMF-ovima, a dva puta godišnje izvještaji s pregledom svih ulaganja koja čine portfelj određene kategorije fonda.</p>
       </div>
-      <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-    Redovna izvješća stižu mailom, SMS-om ili poštom – kako se već odabere.</p>
-    </div>
-     <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-     Račun se vodi u obračunskim jedinicama, a zbroj vrijednosti svih obračunskih jedinica na računima svih članova obveznog mirovinskog fonda, predstavlja ukupnu vrijednost fonda.</p>
-    </div>
     </div>
     </section>
      <!-- Zadatak OMF-ova -->
@@ -483,17 +459,16 @@ footer {
         <!-- The Graphics Layer (Backgrounds) -->
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
-            <div class="scrolly-graphic" id="graphic6" style="background-image: url('images/zvjezdana-pise.png');"></div>
+            <div class="scrolly-graphic" id="graphic6" style="background-image: url('images/01Tihomir_pojasnjava.JPG');"></div>
           </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
             <!-- Step 2 Text -->
             <div class="step" data-step-for="graphic6">
                 <div class="step-content">
-       <p class="text-white text-xl md:text-2xl m-4">Zadatak OMF-ova je da sredstva s osobnih računa članova ulažu, sačuvaju ih i oplemene, tražeći dobre prilike za ulaganje na tržištima kapitala.Kroz takva ulaganja članovi mirovinskih fondova, između ostalog, posredno sudjeluju i u razvoju tema budućnosti – od umjetne inteligencije i zdravstvene skrbi do zelene energije, digitalizacije i novih tehnologija. Njihov novac tako ne služi samo štednji, nego i poticanju promjena koje oblikuju društvo sutra.</p>
-       <p class="text-white text-xl md:text-2xl m-4">Zvjezdana zbraja 2 i 2 – ima svoj novac uplaćivan u drugi stup, fond ga ulaže primjerice u dionice – dakle i ona je posredno ulagačica u domaće i svjetske kompanije!</p>
-       <p class="text-white text-xl md:text-2xl m-4">Vrijednost dionica, odnosno vrijednosnih papira, može oscilirati, tim je važnije opravdati povjerenje koje članovi daju društvima za upravljanje OMF-ima. To je velika odgovornost.</p>
-      
+       <p class="text-white text-xl md:text-2xl m-4">Portfelj je kombinacija različitih ulaganja kojima fondovi nastoje povećati vrijednost imovine svojih članova kroz ostvarene prinose.</p>
+       <p class="text-white text-xl md:text-2xl m-4">Čine ga domaće i inozemne dionice, državne, korporativne i municipalne obveznice, udjeli u investicijskim fondovima te drugi dozvoljeni instrumenti. Takva struktura ulaganja omogućuje optimalnu diversifikaciju, smanjenje rizika i stabilniji dugoročni prinos.</p>
+       <p class="text-white text-xl md:text-2xl m-4">„A što ako vi OMF-ovi pri ulaganju u dionice nešto fulate?” - drugim riječima, pita koji je sustav kontrole i osiguranja njegovih sredstava.</p>
                 </div>
             </div>
         </div>
@@ -505,11 +480,15 @@ footer {
       <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Tvoje pravo na transparentnost – Ulaganja mog OMF-a</h2>
     <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-      OMF-ovi rade u strogo zacrtanim zakonskim okvirima, zna se što smiju, što ne. Pa tako moraju diverzificirati ulaganja s ciljem zaštite imovine. Popis svih ulaganja objavljuje se na mrežnim stranicama svih društava dva puta godišnje, a struktura ulaganja jednom mjesečno.</p>
+      Hrvatska agencija za nadzor financijskih usluga (HANFA) samostalni je i neovisni regulator koji nadzire i rad mirovinskih društava. Redovito objavljuje mjesečna, kvartalna i godišnja izvješća o njihovom poslovanju na svojim mrežnim stranicama.</p>
       </div>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-     Hrvatska agencija za nadzor financijskih usluga (HANFA), neovisni je regulator koji nadzire i rad mirovinskih društava. Kontrolira njihova ulaganja i provjerava jesu li transakcije u skladu sa zakonom, a redovito objavljuje mjesečna, kvartalna i godišnja izvješća na svojim mrežnim stranicama.</p>
+     OMF-ovi kontinuirano prate kretanja na tržištima kapitala i buduća očekivanja te, ovisno o procjenama, donose odluke o ulaganjima i rebalansu portfelja.</p>
+    </div>
+    <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
+     Kroz takvo upravljanje i diversifikaciju nastoje postići optimalan prinos uz kontrolirani rizik.</p>
     </div>
     </div>
     </section>
@@ -520,21 +499,17 @@ footer {
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
             
-            <div class="scrolly-graphic" id="graphic5" style="background-image: url('images/zgleda_sm.jpg');"></div>
+            <div class="scrolly-graphic" id="graphic5a" style="background-image: url('images/03Tihomir_slusa.JPG')";></div>
           </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
             <!-- Step 2 Text -->
-            <div class="step" data-step-for="graphic5">
+            <div class="step" data-step-for="graphic5a">
                 <div class="step-content">
-      <p class="text-white text-xl md:text-2xl m-4">Zvjezdana ulazi sve dublje u tematiku. Ako to nije radila ranije - krajnje je vrijeme.</p>
-      <p class="text-white text-xl md:text-2xl m-4">„Moram si to malo posložiti, proučiti oko mirovina, jer sutra će doći…vrlo brzo!“
-Od četiri društva za upravljanje OMF-ovima u Hrvatskoj, zna čiji je član. No nije bila upoznata s kategorijama obveznih mirovinskih fondova.</p>
-      <p class="text-white text-xl md:text-2xl m-4">Informacije o kategoriji fonda mogu se dobiti direktno od društva u kojemu su, a dodatne adrese za informiranje su REGOS i sustav e-Građani.</p>  
-      <p class="text-white text-xl md:text-2xl m-4">Za stolom Zvjezdani pomaže kćer Tea i kreće istraga! „Mama, tu ti piše u kojem si fondu i u kojoj si kategoriji“. Saznaje da je u kategoriji B. Zvjezdana priznaje: „Nisam znala da postoje tri kategorije A, B i C. Sve to tek sad učim.“</p>
-      <p class="text-white text-xl md:text-2xl m-4">Kategorije se razlikuju po investicijskoj strategiji, rizicima i uvjetima članstva ovisno o vremenu do referentnog dana, odnosno dana kada se stječe pravo odlaska u starosnu mirovinu.</p>
-     <p class="text-white text-xl md:text-2xl m-4">Kao osoba koja se bavi fotografijom i koja je vizualan tip, Zvjezdana voli ilustrirati stvari. Tako su se na papiru iscrtavale kategorije i povezivalo kakve one imaju veze s ulaganjima.</p>
-                </div>
+      <p class="text-white text-xl md:text-2xl m-4">„Znači ako ja vidim da vi ulažete, ne znam, u nešto što mi se ne sviđa, ja se mogu prebaciti u neki drugi OMF. Na primjer, želim da se više ulaže u tehnologije, zelenu energiju ili turizam.“ – zaključuje Tihomir.</p>
+      <p class="text-white text-xl md:text-2xl m-4">Ulaganja mogu biti jedan od faktora na osnovu kojega bi on samostalno birao OMF kojem će dati povjerenje za investiranje njegove mirovinske štednje, iz koje će jednog dana dobivati mirovinu iz 2. stupa.</p>
+      <p class="text-white text-xl md:text-2xl m-4">Sredstva iz drugog stupa namijenjena su isključivo za isplatu mirovine, čija će visina ponajprije ovisiti o iznosu uplaćenih i kapitaliziranih sredstava, ali i o vrsti i obliku odabrane mirovine.</p>  
+             </div>
             </div>
         </div>
     </div>
@@ -542,133 +517,97 @@ Od četiri društva za upravljanje OMF-ovima u Hrvatskoj, zna čiji je član. No
       <!-- Nastavak -->
     <section class="standard-section">
         <div class="standard-section-content">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Tvoje pravo da znaš – Koji su rizici i limiti?</h2>
-      <h3  class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">A kategorija</h3>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Tvoje pravo na odabir – Želim taj fond i tu kategoriju!</h2>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-        Rizičnija jer se više ulaže u dionice nego npr. u obveznice. Dugoročno može donijeti veći očekivani prinos, ali i veće oscilacije vrijednosti. Dozvoljeno je ulagati do najviše 70% neto vrijednosti imovine fonda u dionice.</p>
+        Četiri su društva u Hrvatskoj koji upravljaju OMF-ovima, može se mijenjati iz jednoga u drugo u prve tri godine članstva s naknadom, nakon treće godine bez naknade.</p>
       </div>
-      <h3  class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">B kategorija</h3>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-        Umjerenog rizika zbog umjerenije investicijske strategije, pa stoga i dugoročno umjerenijim očekivanim prinosima. Dozvoljeno je ulaganje do najviše 40% neto vrijednosti imovine fonda u dionice.</p>
+Društvo se, kao i kategorija fonda, može promijeniti na šalteru Središnjeg registra osiguranika (REGOS) u poslovnicama FINA-e, u Mirovinskim informativnim centra ili putem sustava e-Građani.</p>
       </div>
-			<h3  class="text-2xl md:text-3xl font-bold mb-6 text-gray-800">C kategorija</h3>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-       Najmanji rizik, ali i s nižim očekivanim prinosima u dužem roku, jer se imovina pretežito ulaže u niskorizična ulaganja npr. obveznice ili depozite. Ulaganje u dionice je vrlo ograničeno - najviše do 10% neto vrijednosti imovine fonda, i to isključivo u visokolikvidne dionice.</p>
+       Dopušteno je jednom godišnje promijeniti kategoriju unutar istog društva ili prelaskom u OMF kojim upravlja drugo mirovinsko društvo, a postoje 3 kategorije – A, B i C.</p>
+      </div>
+      <div class="flex flex-col md:flex-row gap-8 mb-8">
+        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
+      Kategorije se međusobno razlikuju po investicijskoj strategiji, rizicima i uvjetima članstva ovisno o dobi.</p>
       </div>
     </div>
     </div>
     </section>
 
-    <!-- OMF-ovi -->
+    <!-- Investicijske strategije-->
     <div class="scrolly-container">
         <!-- The Graphics Layer (Backgrounds) -->
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
             
-            <div class="scrolly-graphic" id="graphic51" style="background-image: url('images/zvjezdana-gleda.jpg');"></div>
+            <div class="scrolly-graphic" id="graphic51" style="background-image: url('images/07Tihomir_sam.jpg');"></div>
           </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
             <!-- Step 2 Text -->
             <div class="step" data-step-for="graphic51">
                 <div class="step-content">
-     <p class="text-white text-xl md:text-2xl m-4">Član može ostati u fondu kategorije A ako mu je do referentnog dana ostalo 10 ili više godina. Iznimno, na temelju osobnog zahtjeva, može i dalje ostati u kategoriji A ako mu je do referentnog dana ostalo 5 ili više godina, a nakon tog roka REGOS će ga rasporediti u fond kategorije B kojim upravlja isto mirovinsko društvo.</p>
-   
-      <p class="text-white text-xl md:text-2xl m-4">U kategoriji B, isto kao i u kategoriji C član može biti neovisno o duljini vremenskog razdoblja do referentnog dana, odnosno dana ispunjenja uvjeta za starosnu mirovinu.</p>
+     <p class="text-white text-xl md:text-2xl m-4">Što se investicijske strategije i rizika tiče - kategorija A u kojoj je Tihomir, na duge staze donosi veći očekivani prinos ali i veću razinu rizika jer uključuje veći udio dioničkih ulaganja.</p>
+     <p class="text-white text-xl md:text-2xl m-4">Kategorija B je umjerenog rizika zbog umjerenije investicijske strategije, pa stoga i dugoročno umjerenijim očekivanim prinosima.</p>
+     <p class="text-white text-xl md:text-2xl m-4">C kategorija je s najmanjim rizikom, ali i nižim očekivanim prinosa u dužem roku, jer se imovina pretežito ulaže u niskorizična ulaganja npr. obveznice ili depozite.</p>
+     <p class="text-white text-xl md:text-2xl m-4">„Ak sam ja dobro shvatio, oni će svakako ulagati, ali je samo pitanje koliko će onda od te „zarade“ odnosno prinosa meni pripasti i „vidjet“ se na mirovini jednog dana. Na dugi rok očekuje se više ako sam u A, ako sam u B nešto srednje, ako sam u C praktički ono minimalno.“ – pretpostavlja Tihomir.</p>
+     <p class="text-white text-xl md:text-2xl m-4">Njegov sin navršio je 18 godina. Pred njim je još školovanja, ne razmišlja o stalnom zaposlenju, a kamoli mirovini koja mu je, kao i mnogim mladima – apstraktan pojam.</p>
+     <p class="text-white text-xl md:text-2xl m-4"> „A ako moj Jan odradi neki posao koji je honorarni ili tako nešto, što onda? Prijavljuje li se? Što radi?“ – gleda Tihomir kako dati najbolju uputu sinu.</p>
+     <p class="text-white text-xl md:text-2xl m-4">Mlađi od 40 godina koji prime prvu uplatu dohotka na temelju nesamostalnog rada, samostalne djelatnosti, nekog drugog dohotka ili naknade - postaju osiguranici u drugom mirovinskom stupu.</p>
                 </div>
             </div>
         </div>
     </div>
+     <!-- Prvo zaposlenje -->
     <section class="standard-section">
         <div class="standard-section-content">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Tvoje pravo na odabir – Želim taj fond i tu kategoriju!</h2>
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Prvo zaposlenje – prvi koraci</h2>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-       Ima se pravo samostalno odabrati društvo za upravljanje OMF-om i kategoriju A, B ili C.</p>
+      Mjesec dana od prvog zaposlenja samostalno se može odabrati društvo i kategorija fonda – A, B ili C.</p>
       </div>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-       Isto se može napraviti na šalteru REGOS-a u poslovnicama FINA-e, u Mirovinskim informativnim centrima i putem sustava e-Građani.</p>
+       Isto se može napraviti na šalteru REGOS-a u poslovnicama FINA-e, u Mirovinskim informativnim centrima i putem sustava e-Građani.Ne odluči li se samostalno, REGOS automatski raspoređuje u mirovinski fond kategorije A pod upravljanjem jednog od mirovinskih društava.</p>
       </div>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-        Društvo se može mijenjati u prve tri godine članstva s naknadom, nakon treće godine bez naknade. </p>
+        Član obveznog mirovinskog fonda kategorije A može u njoj ostati ako mu je do referentnog dana ostalo deset ili više godina. Iznimno, ako preda osobni zahtjev REGOS-u može i dalje ostati u toj kategoriji ako mu je do ispunjena uvjeta za starosnu mirovinu ostalo pet ili više godina.</p>
       </div>
       <div class="flex flex-col md:flex-row gap-8 mb-8">
         <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-        Dozvoljeno je jednom godišnje unutar istog mirovinskog društva ili prelaskom u fond kojim upravlja drugo mirovinsko društvo prebaciti se iz jedne kategorije fonda u drugu.</p>
+       Ako se propusti podnijeti zahtjev za ostanak u kategoriji A, iako je već REGOS člana rasporedio u kategoriju B, u kategoriju A se vratiti može ako je do ostvarivanja prava na mirovinu ostalo pet ili više godina.</p>
       </div>
       </div>
     </div>
     </div>
     </section>
 
-     <!-- OMF-ovi -->
+     <!-- Nekoliko sati poduke -->
     <div class="scrolly-container">
         <!-- The Graphics Layer (Backgrounds) -->
         <div class="scrolly-graphics">
             <!-- These are the background images that will be revealed -->
             
-            <div class="scrolly-graphic" id="graphic8" style="background-image: url('images/zvjezdana-nadesno.JPG');"></div>
+            <div class="scrolly-graphic" id="graphic8a" style="background-image: url('images/08Tihomir_sam_blizu.JPG');"></div>
           </div>
         <!-- The Steps Layer (Text) -->
         <div class="scrolly-steps">
             <!-- Step 2 Text -->
-            <div class="step" data-step-for="graphic8">
+            <div class="step" data-step-for="graphic8a">
                 <div class="step-content">
-       <p class="text-white text-xl md:text-2xl m-4">Zvjezdana sad bolje razumije vrste kategorija, što su prednosti svake od njih, koji su rizici, u što se sredstva ulažu, zna u kojoj je – B – ali ne zna kako je tamo „završila“.</p>
-   
-      <p class="text-white text-xl md:text-2xl m-4">Saznaje da ju je prema prethodnom Zakonu, REGOS automatizmom rasporedio u kategoriju B, jer samostalno nije ranije odabrala ni društvo ni kategoriju. </p>
-    
-      <p class="text-white text-xl md:text-2xl m-4">Sadašnje pak novozaposlene osobe, REGOS automatski raspoređuje u mirovinski fond kategorije A pod upravljanjem jednog od mirovinskih društava.</p>
-      <p class="text-white text-xl md:text-2xl m-4">Tako se to radi, ne napravi li se odabir u roku od mjesec dana od prvog zaposlenja. Uputa je to koju će dati drugoj kćerki Sari, koja taman završava fakultet i čeka je prvi posao.</p>
+       <p class="text-white text-xl md:text-2xl m-4">Nekoliko sati poduke – i Tihomir napušta prostorije jednog društva za upravljanje OMF-ovima. Sve informacije, kaže, moraju mu se "slegnuti".</p>
+       <p class="text-white text-xl md:text-2xl m-4">Razumljivije mu je što, gdje i kako se ulaže, zna da je puno načina da upravlja svojom imovinom na koju računa u mirovini. Drugi dan na poslu podijelio je iskustva.</p>
+       <p class="text-white text-xl md:text-2xl m-4">„Kad nekoga pitaš u kojem je fondu, ljudi ne znaju. Negdje si, ne znaš, baš te briga, zaposlio si se i to je to. Pojma nemaju, a kamoli u kojoj su kategoriji! Još smo mi na radionici bili super!“ – zadovoljan je Tihomir.</p>
                 </div>
             </div>
         </div>
     </div>
-<!-- BIJELA CJELINA SA OBJAŠNJENJIMA: Tvoje pravo na SIGURNOST  -->
- <section class="standard-section">
-        <div class="standard-section-content">
-     <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Tvoje pravo na sigurnost – tvoj novac ne nestaje</h2>
-      <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-       Ostane li se bez posla, sredstva u drugom stupu ostaju na osobnom računu i dalje se kapitaliziraju. </p>
-      </div>
-      <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-       Sredstva na osobnom računu u obveznom mirovinskom fondu ne mogu biti predmet ovrhe.</p>
-      </div>
-      <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <p class="text-gray-700 leading-relaxed text-lg md:text-xl md:w-3/3">
-        U slučaju da član obveznog mirovinskog fonda premine u radnoj dobi, a članovi obitelji nemaju pravo na obiteljsku mirovinu, nasljednicima REGOS isplaćuje mirovinsku štednju iz drugog stupa u cijelosti, prema rješenju o nasljeđivanju.</p>
-      </div>
-      </div>
-    </div>
-    </div>
-    </section>
 
-    <div class="scrolly-container">
-        <!-- The Graphics Layer (Backgrounds) -->
-        <div class="scrolly-graphics">
-            <!-- These are the background images that will be revealed -->
-            
-            <div class="scrolly-graphic" id="graphic7" style="background-image: url('images/zvjezda-neznam.JPG');"></div>
-          </div>
-        <!-- The Steps Layer (Text) -->
-        <div class="scrolly-steps">
-            <!-- Step 2 Text -->
-            <div class="step" data-step-for="graphic7">
-                <div class="step-content">
-       <p class="text-white text-xl md:text-2xl m-4">Kada se lekcije povežu, sve se svede na razumijevanje da su sredstva u drugom stupu njezina kapitalizirana štednja. Štedjeti se inače može i u trećem stupu, dobrovoljnom mirovinskom fondu, gdje se samostalno određuje koliko i kako često se želi uplaćivati.</p>
-       <p class="text-white text-xl md:text-2xl m-4">Prava lica iza naših kovanica otvorila su vrata društva za upravljanje OMF-ovima Zvjezdani i još dvoje polaznika radionice, Tihomiru i Martini. </p>
-       <p class="text-white text-xl md:text-2xl m-4">Na samome kraju, spremajući svoju bilježnicu gdje je pomno zapisivala svaku informaciju, dodala je - „Nisam zamišljala da će mi biti ovako zanimljivo, nisam znala da je sve toliko dostupno…baš mi je dalo motivaciju!“</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- You can add more .scrolly-container sections or .standard-section sections here -->
 <!--DRUGE PRIČE POČETAK FOOTERA-->
 <footer>
@@ -704,8 +643,8 @@ Od četiri društva za upravljanje OMF-ovima u Hrvatskoj, zna čiji je član. No
 
     </div>
     <div class="column-wrapper flex-col w-full mb-4">
-  <p class="zuto">U sklopu financijskog opismenjavanja sadržaj omogućava PBZ CROATIA OSIGURANJE d.d. za upravljanje obveznim mirovinskim fondovima</p>
-<p style="color: gray ;">Dizajn: F. Kulenović</p>
+ <p class="zuto">U sklopu financijskog opismenjavanja sadržaj omogućava <span class="crveno">PBZ</span><span class="plavo"> CROATIA OSIGURANJE d.d.</span> za upravljanje obveznim mirovinskim fondovima</p>
+ <p style="color: gray ;">Dizajn: F. Kulenović</p>
 </div>
 </footer>
     <script>
